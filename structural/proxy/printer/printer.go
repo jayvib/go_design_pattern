@@ -1,9 +1,10 @@
 // This is an attempt to implement the proxy design pattern
 package printer
 
-type printable interface {
+type Printable interface {
 	SetPrinterName(name string)
 	GetPrinterName() string
+	GetMainPrinterName() string
 	Print(str string) string
 }
 
@@ -13,43 +14,46 @@ type printer struct {
 }
 
 func (self *printer) SetPrinterName(name string) {
-
+	self.name = "main:" + name
 }
 
 func (self *printer) GetPrinterName() string {
-	return ""
+	return self.name
 }
 
 func (self *printer) Print(str string) string {
-	return ""
+	return self.name + ":" + str
 }
 
 type PrinterProxy struct {
 	Name string
-	printer printable
+	*printer
 }
 
 func (self *PrinterProxy) SetPrinterName(name string) {
-
+	self.Name = name
+	self.printer.SetPrinterName(name)
 }
 
 func (self *PrinterProxy) GetPrinterName() string {
-	return ""
+	return self.Name
 }
 
 func (self *PrinterProxy) Print(str string) string {
-	return ""
+	return self.printer.Print(str)
 }
 
-func (self *PrinterProxy) Init() {
-
+func (self *PrinterProxy) GetMainPrinterName() string {
+	return self.printer.GetPrinterName()
 }
 
-func NewPrinterProxy(name string) *PrinterProxy {
-	return &PrinterProxy{
+func NewPrinterProxy(name string) Printable {
+	pp := &PrinterProxy{
 		Name: name,
-		printer: &printer{
-			name: name,
-		},
+		printer: new(printer),
 	}
+
+	pp.printer.SetPrinterName(name)
+
+	return pp
 }
