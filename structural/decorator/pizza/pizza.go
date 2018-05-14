@@ -21,7 +21,7 @@ func WithIngredient(ingredient ...IngredientAdd) (IngredientAdd, error) {
 	case 1:
 		return nil, errors.New("pizza: must provide an added ingredient to the pizza")
 	}
-	
+
 	return nil, errors.New("not implemented yet")
 }
 
