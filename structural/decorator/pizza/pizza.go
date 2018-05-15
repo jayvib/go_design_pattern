@@ -5,24 +5,8 @@ import (
 	"fmt"
 )
 
-var (
-	NoSetObject = errors.New("pizza: an Ingredient field don't have set object.")
-)
-
-
 type IngredientAdd interface {
 	AddIngredient() (string, error)
-}
-
-func WithIngredient(ingredient ...IngredientAdd) (IngredientAdd, error) {
-	switch len(ingredient) {
-	case 0:
-		return nil, errors.New("pizza: main pizza must be provided")
-	case 1:
-		return nil, errors.New("pizza: must provide an added ingredient to the pizza")
-	}
-
-	return nil, errors.New("not implemented yet")
 }
 
 type PizzaDecorator struct {
@@ -38,16 +22,7 @@ type Meat struct {
 }
 
 func (m *Meat) AddIngredient() (string, error) {
-	if m.Ingredient == nil {
-		return "", NoSetObject
-	}
-
-	p, err := m.Ingredient.AddIngredient()
-	if err != nil {
-		return "", err
-	}
-
-	return fmt.Sprintf("%s %s", p, "meat"), nil
+	return "", errors.New("Not implemented yet")
 }
 
 type Onion struct {
@@ -62,5 +37,5 @@ func (o *Onion) AddIngredient() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return fmt.Sprintf("%s %s", s, "onion"), nil
+	return fmt.Sprintf("%s %s,", s, "onion"), nil
 }

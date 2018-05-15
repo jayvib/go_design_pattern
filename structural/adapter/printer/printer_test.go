@@ -1,23 +1,29 @@
 package printer
 
-import (
-	"testing"
-	"strings"
-)
+import "testing"
 
-func TestModernPrinter(t *testing.T) {
+func TestAdapter(t *testing.T) {
+	msg := "Hello World!"
 
-	legacyPrinter := &LegacyPrinter{}
-	legacyPrinter.SetMessage("hello printer!")
-
-	modernPrinter := &ModernPrinter{}
-	modernPrinter.SetOldPrinter(legacyPrinter)
-
-	if !strings.Contains(modernPrinter.printMessage(), "|modern|") {
-		t.Error("the expected word doesn't appear in the message")
+	adapter := PrinterAdapter{
+		OldPrinter: &MyLegacyPrinter{},
+		Msg: msg,
 	}
 
-	superPrinter := &SuperModernPrinter{}
-	superPrinter.SetModernPrinter(modernPrinter)
-	superPrinter.Display()
+	returnedMsg := adapter.PrintStored()
+
+	if returnedMsg != "Legacy Printer: Adapter: Hello World!\n" {
+		t.Errorf("Message didn't match: %s\n", returnedMsg)
+	}
+
+	adapter = PrinterAdapter{
+		OldPrinter: nil,
+		Msg: msg,
+	}
+
+	returnedMsg = adapter.PrintStored()
+
+	if returnedMsg != "Hello World!" {
+		t.Errorf("Message didn't match: %s\n", returnedMsg)
+	}
 }
