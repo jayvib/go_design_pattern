@@ -61,4 +61,3 @@ func TestLuxuryCarFactory(t *testing.T) {
 		t.Error("luxury car must have 4 seats but has", luxuryCar.NumSeats())
 	}
 }
-

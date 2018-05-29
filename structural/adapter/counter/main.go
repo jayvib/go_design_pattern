@@ -1,9 +1,9 @@
 package main
 
 import (
-	"strconv"
 	"io"
 	"os"
+	"strconv"
 )
 
 type Counter struct {
@@ -29,7 +29,7 @@ func main() {
 	defer pipeReader.Close()
 	defer pipeWriter.Close()
 
-	counter := Counter{ Writer: pipeWriter }
+	counter := Counter{Writer: pipeWriter}
 	counter.Count(5)
 
 	io.TeeReader(pipeReader, file)

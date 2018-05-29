@@ -1,10 +1,10 @@
 package payment_test
 
 import (
-	"testing"
+	"fmt"
 	p "github.com/go_design_pattern/behavioral/strategy/payment"
 	"github.com/go_design_pattern/creational/factory/payment"
-	"fmt"
+	"testing"
 )
 
 func TestSupermarketPayMethod(t *testing.T) {

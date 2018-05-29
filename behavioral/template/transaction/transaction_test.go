@@ -1,12 +1,12 @@
 package transaction
 
 import (
-	"testing"
 	"strings"
+	"testing"
 )
 
 func TestTemplate_ExecuteAlgorithm(t *testing.T) {
-	t.Run("Using interface", func(t *testing.T){
+	t.Run("Using interface", func(t *testing.T) {
 		s := &TestStruct{}
 		s.Template = &TemplateImpl{}
 		res := s.ExecuteAlgorithm(s)
@@ -17,7 +17,7 @@ func TestTemplate_ExecuteAlgorithm(t *testing.T) {
 		}
 	})
 
-	t.Run("Using First Class function adapter to an interface", func(t *testing.T){
+	t.Run("Using First Class function adapter to an interface", func(t *testing.T) {
 		s := &TestStruct{}
 		msgRetreiver := NewMessageRetrieverAdapter(func() string { // using adapter pattern
 			return "world"

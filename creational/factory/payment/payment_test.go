@@ -1,8 +1,8 @@
 package payment
 
 import (
-	"testing"
 	"strings"
+	"testing"
 )
 
 func TestCreatePaymentMethodCash(t *testing.T) {

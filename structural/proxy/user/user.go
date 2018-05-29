@@ -72,4 +72,3 @@ func (u *UserListProxy) addUserToStack(user User) {
 	}
 	u.StackCache.Add(user)
 }
-

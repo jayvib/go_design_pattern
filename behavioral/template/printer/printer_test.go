@@ -1,8 +1,8 @@
 package printer
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestTemplatePrinter(t *testing.T) {

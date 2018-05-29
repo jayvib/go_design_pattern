@@ -1,8 +1,8 @@
 package where_to_write
 
 import (
-	"io"
 	"errors"
+	"io"
 )
 
 type method int32
@@ -21,5 +21,4 @@ func GetWriteMethod(m method) (WriteMethod, error) {
 }
 
 type Text struct {
-
 }

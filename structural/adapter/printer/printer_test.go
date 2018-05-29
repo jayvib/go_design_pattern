@@ -7,7 +7,7 @@ func TestAdapter(t *testing.T) {
 
 	adapter := PrinterAdapter{
 		OldPrinter: &MyLegacyPrinter{},
-		Msg: msg,
+		Msg:        msg,
 	}
 
 	returnedMsg := adapter.PrintStored()
@@ -18,7 +18,7 @@ func TestAdapter(t *testing.T) {
 
 	adapter = PrinterAdapter{
 		OldPrinter: nil,
-		Msg: msg,
+		Msg:        msg,
 	}
 
 	returnedMsg = adapter.PrintStored()

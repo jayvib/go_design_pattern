@@ -8,7 +8,7 @@ import (
 type Method int
 
 const (
-	Cash 	  Method = 1
+	Cash      Method = 1
 	DebitCard Method = 2
 )
 

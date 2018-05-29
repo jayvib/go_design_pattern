@@ -12,15 +12,15 @@ type Trainer interface {
 	Train()
 }
 
-type Athlete struct {}
+type Athlete struct{}
 
 func (a *Athlete) Train() {
 	fmt.Println("Training")
 }
 
-type Animal struct {}
+type Animal struct{}
 
-func(a *Animal) Eat() {
+func (a *Animal) Eat() {
 	fmt.Println("Eating")
 }
 
@@ -29,7 +29,7 @@ type Shark struct {
 	Swim func()
 }
 
-type SwimmerImpl struct {}
+type SwimmerImpl struct{}
 
 func (s *SwimmerImpl) Swim() {
 	fmt.Println("Swimming!")
@@ -37,7 +37,7 @@ func (s *SwimmerImpl) Swim() {
 
 type CompositeSwimmerA struct {
 	MyAthlete Athlete
-	MySwim func()
+	MySwim    func()
 }
 
 type CompositeSwimmerB struct {

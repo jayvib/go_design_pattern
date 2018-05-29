@@ -19,4 +19,3 @@ func (dd *DefaultDisplay) close() string {
 func (dd *DefaultDisplay) Display() string {
 	return dd.open() + dd.print() + dd.close()
 }
-

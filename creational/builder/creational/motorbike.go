@@ -1,6 +1,6 @@
 package creational
 
-type MotorbikeBuilder struct{
+type MotorbikeBuilder struct {
 	vehicle VehicleProduct
 }
 

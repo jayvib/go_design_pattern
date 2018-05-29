@@ -1,12 +1,12 @@
 package transaction
 
 import (
-	"strings"
 	"fmt"
+	"strings"
 )
 
 type MessageRetriever interface {
-	 Message() string
+	Message() string
 }
 
 type Template interface {
@@ -37,7 +37,7 @@ func (m *TestStruct) Message() string {
 	return "world"
 }
 
-type AnonymousTemplate struct {}
+type AnonymousTemplate struct{}
 
 func (a *AnonymousTemplate) first() string {
 	return "hello"

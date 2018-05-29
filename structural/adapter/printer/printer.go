@@ -10,7 +10,7 @@ type ModernPrinter interface {
 	PrintStored() string
 }
 
-type MyLegacyPrinter struct {}
+type MyLegacyPrinter struct{}
 
 func (l *MyLegacyPrinter) Print(s string) (newMsg string) {
 	newMsg = fmt.Sprintf("Legacy Printer: %s\n", s)
@@ -20,7 +20,7 @@ func (l *MyLegacyPrinter) Print(s string) (newMsg string) {
 
 type PrinterAdapter struct {
 	OldPrinter LegacyPrinter
-	Msg 	   string
+	Msg        string
 }
 
 func (p *PrinterAdapter) PrintStored() (newMsg string) {

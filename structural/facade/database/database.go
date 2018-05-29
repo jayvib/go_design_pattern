@@ -5,7 +5,7 @@ import "strings"
 var DB db
 
 func init() {
-		DB = db{
+	DB = db{
 		"jayson.vibandor@gmail.com": "Jayson Vibandor",
 		"jimboy.vibandor@gmail.com": "Jimboy Vibandor",
 	}
@@ -33,7 +33,6 @@ func GetUserByEmail(email string) *User {
 func parseName(fullname string) (firstname, lastname string) {
 	splitName := strings.Split(fullname, " ")
 	firstname = splitName[0]
-	lastname =splitName[1]
+	lastname = splitName[1]
 	return firstname, lastname
 }
-

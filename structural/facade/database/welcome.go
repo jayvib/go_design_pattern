@@ -2,7 +2,7 @@ package database
 
 import "fmt"
 
-type greet struct {}
+type greet struct{}
 
 func (greet) welcome(name string) string { // this is a form of facade design pattern
 	return fmt.Sprintf("Welcome %s!", name)

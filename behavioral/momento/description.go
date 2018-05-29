@@ -1,6 +1,5 @@
 package momento
 
-
 type state struct {
 	decription string
 }

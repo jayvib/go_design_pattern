@@ -1,15 +1,15 @@
 package vehicle
 
 import (
-	"testing"
-	"strings"
 	"fmt"
+	"strings"
+	"testing"
 )
 
 func TestJunkComplex(t *testing.T) {
 	junkVehicle := &JunkVehicle{Wheel: 4, Door: 4, Seat: 5}
 
-	junkComplex := &JunkComplex{ parts:junkVehicle }
+	junkComplex := &JunkComplex{parts: junkVehicle}
 
 	if !strings.Contains(junkComplex.DoorsIGot(), "got 4 doors") {
 		t.Error("expecting message to have 4 doors but got", junkComplex.DoorsIGot())
@@ -23,9 +23,9 @@ func TestJunkComplex(t *testing.T) {
 		t.Error("expecting message to have 4 wheels but got", junkComplex.WheelsIGot())
 	}
 
-	junkVehicleWithExtraOnePartEach := &PartAddedJunkVehicle{ jv:junkVehicle }
+	junkVehicleWithExtraOnePartEach := &PartAddedJunkVehicle{jv: junkVehicle}
 
-	t.Run("junkVehicleWithExtraOnePartEach", func(t *testing.T){
+	t.Run("junkVehicleWithExtraOnePartEach", func(t *testing.T) {
 
 		junkComplex.parts = junkVehicleWithExtraOnePartEach
 

@@ -1,8 +1,8 @@
 package printer_test
 
 import (
-	"testing"
 	"log"
+	"testing"
 
 	"github.com/go_design_pattern/structural/proxy/printer"
 )

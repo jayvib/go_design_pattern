@@ -49,7 +49,7 @@ func (self *PrinterProxy) GetMainPrinterName() string {
 
 func NewPrinterProxy(name string) Printable {
 	pp := &PrinterProxy{
-		Name: name,
+		Name:    name,
 		printer: new(printer),
 	}
 

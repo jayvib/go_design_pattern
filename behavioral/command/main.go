@@ -20,9 +20,9 @@ func (tf taskFunc) Do() {
 }
 
 type taskFunc2 struct {
-	name string
+	name  string
 	items []string
-	fn func(string, ...string)
+	fn    func(string, ...string)
 }
 
 func (tf2 *taskFunc2) Do() {
@@ -32,9 +32,9 @@ func (tf2 *taskFunc2) Do() {
 func taskFuncHelper(name string, fn func(string, ...string), items ...string) task.Command {
 	var cmd task.Command
 	cmd = &taskFunc2{
-		name: name,
+		name:  name,
 		items: items,
-		fn: fn,
+		fn:    fn,
 	}
 	return cmd
 }
@@ -42,20 +42,20 @@ func taskFuncHelper(name string, fn func(string, ...string), items ...string) ta
 func main() {
 
 	t1 := &task1{"Jayson"}
-	tfunc := taskFunc(func(){
+	tfunc := taskFunc(func() {
 		msg := "I'm in hurry, don't disturbe me while I'm doing this task okay?"
 		fmt.Println(msg)
 	})
 
 	ts := task.New(t1, tfunc)
 
-	tf2 := taskFuncHelper("Foo", func(n string, items ...string){
+	tf2 := taskFuncHelper("Foo", func(n string, items ...string) {
 		msg := fmt.Sprintf("%s is collecting some:", n)
 		for _, i := range items {
 			msg += " " + i
 		}
 		fmt.Println(msg)
-		}, "apple", "orange", "grapes", "banana")
+	}, "apple", "orange", "grapes", "banana")
 
 	ts.AddTask(tf2)
 

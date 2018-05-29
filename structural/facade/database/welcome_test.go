@@ -1,9 +1,9 @@
 package database_test
 
 import (
-	"testing"
-	"github.com/go_design_pattern/structural/facade/database"
 	"fmt"
+	"github.com/go_design_pattern/structural/facade/database"
+	"testing"
 )
 
 func TestWelcomePage(t *testing.T) {

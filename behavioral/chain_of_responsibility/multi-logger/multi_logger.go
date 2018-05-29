@@ -1,8 +1,8 @@
 package multi_logger
 
 import (
-	"io"
 	"fmt"
+	"io"
 	"strings"
 )
 
@@ -14,11 +14,9 @@ type MultiLogger struct {
 	loggers []ChainLogger
 }
 
-
 func NewMultiLogger(loggers ...ChainLogger) *MultiLogger {
 	return nil
 }
-
 
 type FirstLogger struct {
 	NextChain ChainLogger
@@ -50,7 +48,7 @@ func (se *SecondLogger) Next(s string) {
 
 type WriterLogger struct {
 	NextChain ChainLogger
-	Writer io.Writer
+	Writer    io.Writer
 }
 
 func (w *WriterLogger) Next(s string) {
@@ -66,7 +64,7 @@ func (w *WriterLogger) Next(s string) {
 
 type ClosureChain struct {
 	NextChain ChainLogger
-	Closure func(string)
+	Closure   func(string)
 }
 
 func (c *ClosureChain) Next(s string) {

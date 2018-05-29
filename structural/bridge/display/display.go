@@ -34,4 +34,3 @@ func (self *StringDisplayImpl) printLine() string {
 	str += "+"
 	return str
 }
-

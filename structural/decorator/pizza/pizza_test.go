@@ -1,8 +1,8 @@
 package pizza
 
 import (
-	"testing"
 	"strings"
+	"testing"
 )
 
 func TestPizzaDecorator_AddIngredient(t *testing.T) {
@@ -10,9 +10,9 @@ func TestPizzaDecorator_AddIngredient(t *testing.T) {
 	pizzaResult, _ := pizza.AddIngredient()
 	expectedText := "Pizza with the following ingredients:"
 	if !strings.Contains(pizzaResult, expectedText) {
-		t.Errorf("When calling the add ingredient of the pizza decorator " +
+		t.Errorf("When calling the add ingredient of the pizza decorator "+
 			"it must return the expected text. \n\tExpected: %s\n\tActual: %s",
-				expectedText, pizzaResult)
+			expectedText, pizzaResult)
 	}
 }
 
@@ -36,7 +36,7 @@ func TestMeat_AddIngredient(t *testing.T) {
 	}
 
 	if !strings.Contains(meatResult, "meat") {
-		t.Errorf("When calling the add ingredient of the meat decorator, it must" +
+		t.Errorf("When calling the add ingredient of the meat decorator, it must"+
 			"return the expected text. \n\tExpected: %s\n\tActual: %s",
 			"meat", meatResult)
 	}

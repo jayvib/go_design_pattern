@@ -15,7 +15,6 @@ func (m *myTestWriter) Write(p []byte) (int, error) {
 	return len(p), nil
 }
 
-func (m *myTestWriter) Next (s string) {
+func (m *myTestWriter) Next(s string) {
 	m.Write([]byte(s))
 }
-

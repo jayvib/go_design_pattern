@@ -1,8 +1,8 @@
 package multi_logger
 
 import (
-	"testing"
 	"strings"
+	"testing"
 )
 
 func TestCreateDefaultChain(t *testing.T) {
@@ -13,8 +13,8 @@ func TestCreateDefaultChain(t *testing.T) {
 	chain := FirstLogger{NextChain: &second}
 
 	t.Run("3 loggers, 2 of them writes to console, second only if it founds "+
-	"the word 'hello', third writes to some variable if second found 'hello'",
-		func(t *testing.T){
+		"the word 'hello', third writes to some variable if second found 'hello'",
+		func(t *testing.T) {
 			chain.Next("message that breaks the chain\n")
 
 			if myWriter.receiveMessage != nil {
@@ -28,10 +28,10 @@ func TestCreateDefaultChain(t *testing.T) {
 			}
 		})
 
-	t.Run("2 loggers, second uses the closure implementations", func(t *testing.T){
+	t.Run("2 loggers, second uses the closure implementations", func(t *testing.T) {
 
 		myWriter = myTestWriter{}
-		closureLogger := &ClosureChain{Closure: func(s string){
+		closureLogger := &ClosureChain{Closure: func(s string) {
 			myWriter.receiveMessage = &s
 		}}
 

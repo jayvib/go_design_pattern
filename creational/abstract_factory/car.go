@@ -14,7 +14,7 @@ const (
 	FamilyCarType = 2
 )
 
-type CarFactory struct{
+type CarFactory struct {
 	vehicle Vehicle
 }
 
@@ -28,4 +28,3 @@ func (c *CarFactory) NewVehicle(v int) (Vehicle, error) {
 		return nil, errors.New(fmt.Sprintf("Vehicle of type %d not recognized\n", v))
 	}
 }
-

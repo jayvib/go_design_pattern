@@ -13,7 +13,7 @@ func Test_UserListProxy(t *testing.T) {
 	rand.Seed(2342342)
 	for i := 0; i < 1000000; i++ {
 		n := rand.Int31()
-		user := User{ ID:n }
+		user := User{ID: n}
 		if len(knownIDs) < 3 {
 			knownIDs = append(knownIDs, n)
 		}
@@ -25,8 +25,6 @@ func Test_UserListProxy(t *testing.T) {
 		StackCapacity: 2,
 		StackCache:    &UserList{},
 	}
-
-
 
 	t.Run("FindUser - Empty cache", func(t *testing.T) {
 		user, err := proxy.FindUser(knownIDs[0])
