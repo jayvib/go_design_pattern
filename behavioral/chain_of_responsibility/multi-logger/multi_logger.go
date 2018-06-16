@@ -14,8 +14,18 @@ type MultiLogger struct {
 	loggers []ChainLogger
 }
 
+func (m *MultiLogger) Do(s string) {
+	for _, logger := range m.loggers {
+		logger.Next(s)
+	}
+}
+
 func NewMultiLogger(loggers ...ChainLogger) *MultiLogger {
-	return nil
+	ml := new(MultiLogger)
+	for _, l := range loggers {
+		ml.loggers = append(ml.loggers, l)
+	}
+	return ml
 }
 
 type FirstLogger struct {
