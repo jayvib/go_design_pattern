@@ -1,4 +1,6 @@
 // This is an attempt to implement the proxy design pattern
+// Instead of actual printer will be use by the client it will be
+// the proxy printer.
 package printer
 
 type Printable interface {
@@ -9,6 +11,7 @@ type Printable interface {
 }
 
 // printer acts as a real heavy object
+// make it private so that the client don't have a direct access to the actual printer
 type printer struct {
 	name string
 }

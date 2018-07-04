@@ -1,3 +1,5 @@
+// an example of template design pattern where the PrinterTemplate implementation object is embedded in the
+// object that who will use the template.
 package printer
 
 import "fmt"
@@ -6,7 +8,6 @@ type PrinterTemplate interface {
 	open() string
 	print() string
 	close() string
-	Display() string
 }
 
 func NewAbstractPrinter(p PrinterTemplate) *AbstractPrinter {
@@ -35,6 +36,6 @@ func (u *UserPrinter) close() string {
 	return "closing"
 }
 
-func (u *UserPrinter) Display() string {
-	return fmt.Sprintf("%s -> %s -> %s", u.open(), u.print(), u.close())
+func (a *AbstractPrinter) Display() string {
+	return fmt.Sprintf("%s -> %s -> %s", a.PrinterTemplate.open(), a.PrinterTemplate.print(), a.PrinterTemplate.close())
 }

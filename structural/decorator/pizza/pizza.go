@@ -22,7 +22,16 @@ type Meat struct {
 }
 
 func (m *Meat) AddIngredient() (string, error) {
-	return "", errors.New("Not implemented yet")
+	result := ""
+	err := (error)(nil)
+	if m.Ingredient != nil {
+		result, err = m.Ingredient.AddIngredient()
+		if err != nil {
+			return "", err
+		}
+	}
+	result += "meat"
+	return result, nil
 }
 
 type Onion struct {
@@ -31,11 +40,46 @@ type Onion struct {
 
 func (o *Onion) AddIngredient() (string, error) {
 	if o.Ingredient == nil {
-		return "", errors.New("An IngredientAdd is needed in the Ingredient field of the Onion")
+		return "", errors.New("An Ingredient Add is needed in the Ingredient field of the Onion")
 	}
 	s, err := o.Ingredient.AddIngredient()
 	if err != nil {
 		return "", err
 	}
 	return fmt.Sprintf("%s %s,", s, "onion"), nil
+}
+
+func AddMeatIngredientDecorator(i IngredientAdd) IngredientAdd {
+	return &Meat{
+		Ingredient: i,
+	}
+}
+
+func AddOnionIngredientDecorator(i IngredientAdd) IngredientAdd {
+	return &Onion{
+		Ingredient: i,
+	}
+}
+
+type Marshmallow struct {
+	Ingredient IngredientAdd
+}
+
+func (m *Marshmallow) AddIngredient() (string, error) {
+	result := ""
+	err := (error)(nil)
+	if m.Ingredient != nil {
+		result, err = m.Ingredient.AddIngredient()
+		if err != nil {
+			return "", err
+		}
+	}
+	result += "marshmallow"
+	return result, nil
+}
+
+func AddMarshmallowIngredientDecorator(i IngredientAdd) IngredientAdd {
+	return &Marshmallow{
+		Ingredient: i,
+	}
 }

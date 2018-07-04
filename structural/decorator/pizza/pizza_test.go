@@ -3,6 +3,7 @@ package pizza
 import (
 	"strings"
 	"testing"
+	"fmt"
 )
 
 func TestPizzaDecorator_AddIngredient(t *testing.T) {
@@ -31,7 +32,7 @@ func TestOnion_AddIngredient(t *testing.T) {
 func TestMeat_AddIngredient(t *testing.T) {
 	meat := &Meat{}
 	meatResult, err := meat.AddIngredient()
-	if err == nil {
+	if err != nil {
 		t.Error("When calling the meat addIngredient that is empty must return an error.")
 	}
 
@@ -40,6 +41,31 @@ func TestMeat_AddIngredient(t *testing.T) {
 			"return the expected text. \n\tExpected: %s\n\tActual: %s",
 			"meat", meatResult)
 	}
+
+	t.Run("Onion", func(t *testing.T){
+		deco := AddOnionIngredientDecorator(meat)
+		res, err := deco.AddIngredient()
+		if err != nil {
+			t.Fatal(err.Error())
+		}
+		if !strings.Contains(res, "onion") {
+			t.Error("item must already have an onion")
+		}
+		fmt.Println(res)
+
+		t.Run("Marshmallow", func(t *testing.T){
+			deco = AddMarshmallowIngredientDecorator(deco)
+			res, err = deco.AddIngredient()
+			if err != nil {
+				t.Fatal(err.Error())
+			}
+			if !strings.Contains(res, "marshmallow") {
+				t.Error("item must already have a marshmallow")
+			}
+			fmt.Println(res)
+		})
+
+	})
 
 }
 
