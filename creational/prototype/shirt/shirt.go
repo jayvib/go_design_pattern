@@ -31,6 +31,6 @@ func (sc *ShirtsCache) GetClone(s int) (ItemInfoGetter, error) {
 		newItem := *bluePrototype
 		return &newItem, nil
 	default:
-		return nil, errors.New("Shirt model not recognized")
+		return nil, errors.New("shirt model not recognized")
 	}
 }
