@@ -1,6 +1,24 @@
 package storage
 
-import "testing"
+import (
+	"testing"
+	"github.com/stretchr/testify/mock"
+)
+
+type anotherMockDB struct {
+	mock.Mock
+}
+
+func(m *anotherMockDB) Find(text string) string {
+	args := m.Called(text)
+	return args.String(0)
+}
+
+func TestMockDB(t *testing.T) {
+	testObj := new(anotherMockDB)
+	testObj.On("Find", "test").Return("test")
+	testObj.AssertExpectations(t)
+}
 
 func TestDB(t *testing.T) {
 	var database DB
@@ -47,3 +65,4 @@ func TestDB(t *testing.T) {
 	})
 	
 }
+

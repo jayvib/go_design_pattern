@@ -20,6 +20,7 @@ func (m *MultiLogger) Do(s string) {
 	}
 }
 
+// NewMultiLogger takes a type that satisfies ChainLogger then return a MultiLogger type
 func NewMultiLogger(loggers ...ChainLogger) *MultiLogger {
 	ml := new(MultiLogger)
 	for _, l := range loggers {
