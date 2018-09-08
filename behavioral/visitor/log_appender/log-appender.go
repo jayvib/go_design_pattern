@@ -48,6 +48,7 @@ type Visitable interface {
 }
 
 type MessageVisitor struct {}
+
 func (mv *MessageVisitor) VisitA(a *MessageA) {
 	a.Msg = fmt.Sprintf("%s %s", a.Msg, "(Visited A)")
 }
