@@ -1,57 +1,32 @@
-package worker
+package main
 
 import (
-	"log"
-	"sync"
-	"time"
+	"fmt"
+	"go_design_pattern/concurrency/worker-pool/review"
 )
 
-type Request struct {
-	Data    interface{}
-	Handler RequestHandler
-}
+func main() {
+	bufferSize := 100
+	var dispatcher review.Dispatcher = review.NewDispatcher(bufferSize)
+	workers := 5
+	for i := 0; i < workers; i++ {
+		var w review.WorkerLauncher = &review.PreffixSuffixWorker{
+			i,
+			fmt.Sprintf("WorkerID: %d -> ", i),
+			" World",
+		}
 
-type RequestHandler func(interface{})
-
-func NewStringRequest(s string, id int, wg *sync.WaitGroup) Request {
-	return Request{
-		Data: "Hello",
-		Handler: func(i interface{}) {
-			defer wg.Done()
-			s, ok := i.(string)
-			if !ok {
-				log.Fatal("invalid casting to string")
-			}
-		},
+		dispatcher.LaunchWorker(w)
 	}
-}
 
-type WorkerLauncher interface {
-	LaunchWorker(in chan Request)
-}
-
-type Dispatcher interface {
-	LaunchWorker(w WorkerLauncher)
-	MakeRequest(Request)
-	Stop()
-}
-
-type dispatcher struct {
-	inCh chan Request
-}
-
-func (d *dispatcher) LaunchWorker(id int, w WorkerLauncher) {
-	w.LaunchWorker(d.inCh)
-}
-
-func (d *dispatcher) Stop() {
-	close(d.inCh)
-}
-
-func (d *dispatcher) MakeRequest(r Request) {
-	select {
-	case d.inCh <- r:
-	case <-time.After(5 * time.Second):
-		return
-	}
+	//requests := 100
+	//var wg sync.WaitGroup
+	//wg.Add(requests)
+	//
+	//for i := 0; i < requests; i++ {
+	//	req := review.NewStringRequest("(Msg_id: %d -> Hello", i, &wg)
+	//	dispatcher.MakeRequest(req)
+	//}
+	//dispatcher.Stop()
+	//wg.Wait()
 }

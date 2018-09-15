@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// This is an attempt to implement a downloader using the barrier pattern concept.
+// This is an attempt to implement a string-processor using the barrier pattern concept.
 // Barrier Design Pattern will put up a barrier so that nobody passes until we have all the results we need
 
 var defaultTimeout = time.Duration(2 * time.Minute)
