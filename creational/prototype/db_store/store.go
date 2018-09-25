@@ -6,6 +6,7 @@ const (
 	MONGO  storage = 3
 )
 
+type storage int
 
 var globalStore Store
 
