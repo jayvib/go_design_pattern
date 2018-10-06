@@ -8,7 +8,7 @@ import (
 )
 
 type ImageSquare struct {
-	Output
+	Output // interface embedding to satisfy the StrategyV2 interface.
 }
 
 func (i *ImageSquare) Print() error {

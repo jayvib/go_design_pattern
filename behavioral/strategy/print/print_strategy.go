@@ -17,7 +17,7 @@ type Strategy interface {
 }
 
 type StrategyV2 interface {
-	Strategy
+	Strategy // use interface embedding
 	SetLog(io.Writer)
 	SetWriter(io.Writer)
 }
