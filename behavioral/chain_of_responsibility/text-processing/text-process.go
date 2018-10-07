@@ -1,5 +1,10 @@
 package text_processing
 
+import (
+	"fmt"
+	"strings"
+)
+
 // Criteria:
 // 1. An object that will implement the chain text processor interface.
 
@@ -31,14 +36,14 @@ func (p *TextProcessor) Transform(s string) {
 
 type ToUpperCase struct {}
 
-func (u *ToUpperCase) TransformNext(s string) {
-
+func (ToUpperCase) TransformNext(s string) {
+	fmt.Println(strings.ToUpper(s))
 }
 
-type ToTitle struct {}
+type ToLower struct {}
 
-func (t *ToTitle) TransformNext(s string) {
-
+func (ToLower) TransformNext(s string) {
+	fmt.Println(strings.ToLower(s))
 }
 
 type ToReplace struct {
@@ -47,6 +52,6 @@ type ToReplace struct {
 }
 
 func (r *ToReplace) TransformNext(s string) {
-
+	fmt.Println(strings.Replace(s, r.charToReplace, r.charToReplaceWith, -1))
 }
 
