@@ -2,14 +2,18 @@ package recap
 
 import "fmt"
 
+// is the state that will be stored
 type State struct {
 	Description string
 }
 
+// momento is a container for storing the state
 type momento struct {
 	state State
 }
 
+// originator is the responsible for putting the state into the memento
+// and opening the memento.
 type originator struct {
 	state State
 }
