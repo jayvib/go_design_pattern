@@ -33,7 +33,7 @@ type RequestHandler func(data interface{})
 // This will standby until the new data was come in to
 // channel.
 type WorkerLauncher interface {
-	LaunchWorker(in chan Request)
+	LaunchWorker(in <-chan Request)
 }
 
 func NewDispatcher(ctx context.Context, size int) Dispatcher {

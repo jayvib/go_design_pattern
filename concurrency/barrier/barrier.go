@@ -37,13 +37,13 @@ func captureBarrierOutput(endpoints ...string) string {
 
 func barrier(endpoints ...string) {
 	requestNumber := len(endpoints)
-	in := make(chan barrierResp, requestNumber)
+	in := make(chan barrierResp, requestNumber) // a channel for barrierResp with expected number of request.
 	defer close(in)
 
-	responses := make([]barrierResp, requestNumber)
+	responses := make([]barrierResp, requestNumber) // store the responses
 
 	for _, endpoint := range endpoints {
-		go makeRequest(in, endpoint)
+		go makeRequest(in, endpoint) // deploy goroutines to download
 	}
 
 	var hasError bool

@@ -73,7 +73,7 @@ type PreffixSuffixWorker struct {
 
 func (w *PreffixSuffixWorker) LaunchWorker(in chan Request) {
 	fmt.Printf("Worker %d is up...\n", w.Id)
-	 w.prefix(w.append(w.uppercase(in)))
+	 w.prefix(w.append(w.uppercase(in))) // pipeline
 }
 
 func (w *PreffixSuffixWorker) uppercase(in <-chan Request) <-chan Request {

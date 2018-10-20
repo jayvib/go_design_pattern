@@ -15,9 +15,9 @@ type PrefixSuffixStringLaunchWorker struct {
 	id int
 }
 
-func (p *PrefixSuffixStringLaunchWorker) LaunchWorker(in chan sp.Request) {
+func (p *PrefixSuffixStringLaunchWorker) LaunchWorker(in <-chan sp.Request) {
 	fmt.Printf("Worker %d is up...\n", p.id)
-	p.suffix(p.prefix(p.uppercase(in)))
+	p.suffix(p.prefix(p.uppercase(in))) // pipeline...
 }
 
 // Create a pipeline.
@@ -75,19 +75,19 @@ func (p *PrefixSuffixStringLaunchWorker) suffix(in <-chan sp.Request) {
 }
 
 func main() {
-	ctx, cancel := context.WithTimeout(context.Background(), 5 * time.Second)
+	ctx, cancel := context.WithDeadline(context.Background(), time.Now().Add(5 * time.Second))
 	defer cancel()
 
 	// Launch the dispatcher
-	var dptcher sp.Dispatcher = sp.NewDispatcher(ctx, 100)
-	workerSize := 5
+	var dptcher = sp.NewDispatcher(ctx, 100)
+	workerSize := 5 // workers that will process...
 	for i := 1; i < workerSize; i++ {
-		var lworker sp.WorkerLauncher = &PrefixSuffixStringLaunchWorker{
+		var worker = &PrefixSuffixStringLaunchWorker{
 			prefixS: "Go",
 			suffixS: "Gopher",
 			id: i,
 		}
-		dptcher.LaunchWorker(lworker)
+		dptcher.LaunchWorker(worker) // workers are block... they are waiting for data.
 	}
 
 	request := 100
@@ -100,6 +100,6 @@ func main() {
 
 		dptcher.MakeRequest(req)
 	}
-	dptcher.Stop()
 	wg.Wait()
+	dptcher.Stop()
 }

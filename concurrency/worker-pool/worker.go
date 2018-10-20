@@ -7,7 +7,7 @@ import (
 
 func main() {
 	bufferSize := 100
-	var dispatcher review.Dispatcher = review.NewDispatcher(bufferSize)
+	var dispatcher = review.NewDispatcher(bufferSize)
 	workers := 5
 	for i := 0; i < workers; i++ {
 		var w review.WorkerLauncher = &review.PreffixSuffixWorker{
