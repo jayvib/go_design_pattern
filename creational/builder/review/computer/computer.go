@@ -4,6 +4,7 @@ type BuildProcess interface {
 	SetMonitor() BuildProcess
 	SetKeyboard() BuildProcess
 	SetMouse() BuildProcess
+	SetType() BuildProcess
 	GetComputer() ComputerProduct
 }
 
@@ -12,6 +13,7 @@ type ComputerProduct struct {
 	monitor  string
 	keyboard string
 	mouse    string
+	t string // computer type
 }
 
 // Director is an object that is responsible for
@@ -28,10 +30,11 @@ type Director struct {
 }
 
 func (d *Director) SetBuilder(b BuildProcess) {
-	//d.builder = b
+	d.builder = b
 }
 
 func (c *Director) Build() {
+	c.builder.SetMonitor().SetKeyboard().SetMouse().SetType()
 }
 
 // Builders are the objects that responsible how the
@@ -47,14 +50,20 @@ type LaptopBuilder struct {
 }
 
 func (l *LaptopBuilder) SetMonitor() BuildProcess {
-	return nil
+	l.product.monitor = "Dell"
+	return l
 }
 func (l *LaptopBuilder) SetKeyboard() BuildProcess {
-	return nil
+	l.product.keyboard = "HP"
+	return l
 }
 func (l *LaptopBuilder) SetMouse() BuildProcess {
-	return nil
+	l.product.mouse = "Lenovo"
+	return l
+}
+func (l *LaptopBuilder) SetType() BuildProcess{
+	l.product.t = "Laptop"
 }
 func (l *LaptopBuilder) GetComputer() ComputerProduct {
-	return ComputerProduct{}
+	return l.product
 }
