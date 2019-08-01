@@ -1,5 +1,11 @@
 package main
 
+// WISDOM:
+// Try to avoid the builder pattern when you are not completely sure that the algorithm
+// is going to be more or less stable because any small change in this interface
+// will affect all you builders and it could be awkward if you add a new method 
+// that some of your builders need and others Builders do not.
+
 type BuildProcess interface {
 	SetMonitor() BuildProcess
 	SetKeyboard() BuildProcess
