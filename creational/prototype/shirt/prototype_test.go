@@ -1,6 +1,7 @@
 package shirt
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -14,7 +15,7 @@ func TestClone(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-
+	fmt.Printf("%p %p\n", item1, whitePrototype)
 	if item1 == whitePrototype { // yeah because item1 carry the address of a pointer value.
 		t.Error("item1 cannot be equal to the white prototype")
 	}
