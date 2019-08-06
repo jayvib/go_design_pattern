@@ -4,19 +4,28 @@ import (
 	"errors"
 	"fmt"
 	"io"
+
+	log "github.com/sirupsen/logrus"
 )
+
+// Components
+// Basic Interface
+// General interface
+// Director
 
 type PrinterAPI interface {
 	PrintMessage(string) error
 }
 
+// This print to the console
 type PrinterImpl1 struct{}
 
 func (p *PrinterImpl1) PrintMessage(msg string) error {
-	fmt.Printf("%s\n", msg)
+	log.Printf("%s\n", msg)
 	return nil
 }
 
+// this will write to the writer
 type PrinterImpl2 struct {
 	Writer io.Writer
 }
@@ -33,6 +42,7 @@ func (d *PrinterImpl2) PrintMessage(msg string) error {
 	return nil
 }
 
+// TestWriter writes the p to the Msg field
 type TestWriter struct {
 	Msg string
 }
@@ -51,10 +61,14 @@ type PrinterAbstraction interface {
 	Print() error
 }
 
+// just like the builder pattern in the director
+// object
 type SuperPrinter struct {
 	Printer PrinterAbstraction
 }
 
+// PrinterAbstraction is the implementation that
+// change often.
 func (s *SuperPrinter) SetPrinter(printer PrinterAbstraction) {
 	s.Printer = printer
 }
