@@ -1,6 +1,6 @@
 module github.com/jayvib/go_design_pattern
 
-go 1.12
+go 1.11
 
 require (
 	github.com/sirupsen/logrus v1.4.2
