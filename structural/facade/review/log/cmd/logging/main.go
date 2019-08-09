@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	log.SetLogger(log.Std)
+	log.SetLogger(log.Logrus)
 	log.Println("Hello Logging World!")
 }
