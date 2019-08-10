@@ -28,7 +28,7 @@ func (t template) Execute(fn processorFunc) string {
 func main() {
 	t := template{msg: "Hello World"}
 	res := t.Execute(func(str string) string {
-		return strings.ToLower(str)
+		return strings.ReplaceAll(str, " ", "|")
 	})
 	logrus.Println(res)
 }
