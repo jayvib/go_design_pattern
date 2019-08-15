@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	log.SetLogger(log.Std)
 	log.Println("Hello Logging World!")
 }

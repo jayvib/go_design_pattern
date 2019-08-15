@@ -17,7 +17,7 @@ var (
 	// This is a form of Facade
 	Logrus = logrus.New()
 	Std    = log.New(os.Stdout, "Standard:", log.Ldate|log.Ltime)
-	
+
 	// I can add more Logger implementations here
 )
 
@@ -26,5 +26,8 @@ func SetLogger(l Logger) {
 }
 
 func Println(args ...interface{}) {
-	logger.Println(args)
+	if logger == nil {
+		logger = Std
+	}
+	logger.Println(args...)
 }
