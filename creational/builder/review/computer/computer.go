@@ -1,4 +1,4 @@
-package main
+package computer
 
 // WISDOM:
 // Try to avoid the builder pattern when you are not completely sure that the algorithm
