@@ -1,6 +1,9 @@
-package userservice
+package cachedproxy
 
-import "context"
+import (
+	"context"
+	"github.com/jayvib/go_design_pattern/structural/proxy/userservice"
+)
 
 // The difference between the decorator pattern and the proxy pattern is
 // the intent. With decorator pattern you extend the functionality of the
@@ -8,11 +11,11 @@ import "context"
 // the life cycle, and access to the existing service.
 
 type CachedProxyRepository struct {
-	repo Repository
-	cache map[int]*User // I could use LRU
+	repo userservice.Repository
+	cache map[int]*userservice.User // I could use LRU
 }
 
-func (c *CachedProxyRepository) Create(ctx context.Context, user *User) error {
+func (c *CachedProxyRepository) Create(ctx context.Context, user *userservice.User) error {
 	err := c.repo.Create(ctx, user)
 	if err != nil {
 		return err
@@ -21,7 +24,7 @@ func (c *CachedProxyRepository) Create(ctx context.Context, user *User) error {
 	return nil
 }
 
-func (c *CachedProxyRepository) Update(ctx context.Context, user *User) error {
+func (c *CachedProxyRepository) Update(ctx context.Context, user *userservice.User) error {
 	err := c.repo.Update(ctx, user)
 	if err != nil {
 		return err
@@ -40,7 +43,7 @@ func (c *CachedProxyRepository) Delete(ctx context.Context, id int) error {
 	return nil
 }
 
-func (c *CachedProxyRepository) Get(ctx context.Context, id int) (*User, error) {
+func (c *CachedProxyRepository) Get(ctx context.Context, id int) (*userservice.User, error) {
 	if user, ok := c.cache[id]; ok {
 		return user, nil
 	}
@@ -52,7 +55,7 @@ func (c *CachedProxyRepository) Get(ctx context.Context, id int) (*User, error) 
 	return user, nil
 }
 
-func (c *CachedProxyRepository) GetAll(ctx context.Context) ([]*User, error) {
+func (c *CachedProxyRepository) GetAll(ctx context.Context) ([]*userservice.User, error) {
 	return c.repo.GetAll(ctx)
 }
 

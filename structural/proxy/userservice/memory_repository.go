@@ -8,6 +8,12 @@ import (
 
 // This is just a simple implementation.
 
+func NewMemoryRepository() *MemoryRepository {
+	return &MemoryRepository{
+		d: make(map[int]*User),
+	}
+}
+
 type MemoryRepository struct {
 	d map[int]*User
 	count int
