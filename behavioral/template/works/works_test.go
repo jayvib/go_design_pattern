@@ -1,7 +1,7 @@
 package works_test
 
 import (
-	"github.com/go_design_pattern/behavioral/template/works"
+	"github.com/jayvib/go_design_pattern/behavioral/template/works"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

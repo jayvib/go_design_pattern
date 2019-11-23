@@ -1,7 +1,7 @@
 package payment
 
 import (
-	"github.com/go_design_pattern/creational/factory/payment"
+	"github.com/jayvib/go_design_pattern/creational/factory/payment"
 	"github.com/pkg/errors"
 )
 

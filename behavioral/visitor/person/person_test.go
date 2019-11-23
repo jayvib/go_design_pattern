@@ -2,7 +2,7 @@ package person_test
 
 import (
 	"fmt"
-	"go_design_pattern/behavioral/visitor/person"
+	"github.com/jayvib/go_design_pattern/behavioral/visitor/person"
 	"testing"
 )
 

@@ -1,10 +1,9 @@
 package printer_test
 
 import (
+	"github.com/jayvib/go_design_pattern/structural/proxy/printer"
 	"log"
 	"testing"
-
-	"github.com/go_design_pattern/structural/proxy/printer"
 )
 
 func TestPrinterProxy(t *testing.T) {

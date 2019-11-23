@@ -1,8 +1,8 @@
 package serialize
 
 import (
+	"encoding/json"
 	"encoding/xml"
-	"github.com/kubernetes/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/json"
 	"testing"
 )
 

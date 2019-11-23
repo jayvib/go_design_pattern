@@ -2,7 +2,7 @@ package print
 
 import (
 	"fmt"
-	"go_design_pattern/behavioral/strategy/print/shapes"
+	"github.com/jayvib/go_design_pattern/behavioral/strategy/print/shapes"
 	"io"
 	"os"
 )

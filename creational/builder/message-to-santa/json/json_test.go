@@ -2,7 +2,7 @@ package json
 
 import (
 	"fmt"
-	"go_design_pattern/creational/builder/message-to-santa"
+	"github.com/jayvib/go_design_pattern/creational/builder/message-to-santa"
 	"testing"
 )
 
