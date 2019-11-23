@@ -34,24 +34,23 @@ func (p *TextProcessor) Transform(s string) {
 	}
 }
 
-type ToUpperCase struct {}
+type ToUpperCase struct{}
 
 func (ToUpperCase) TransformNext(s string) {
 	fmt.Println(strings.ToUpper(s))
 }
 
-type ToLower struct {}
+type ToLower struct{}
 
 func (ToLower) TransformNext(s string) {
 	fmt.Println(strings.ToLower(s))
 }
 
 type ToReplace struct {
-	charToReplace string
+	charToReplace     string
 	charToReplaceWith string
 }
 
 func (r *ToReplace) TransformNext(s string) {
 	fmt.Println(strings.Replace(s, r.charToReplace, r.charToReplaceWith, -1))
 }
-

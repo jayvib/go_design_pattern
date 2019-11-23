@@ -2,7 +2,7 @@ package online_shopping
 
 type Product struct {
 	Price float32
-	Name string
+	Name  string
 }
 
 func (p *Product) GetPrice() float32 {

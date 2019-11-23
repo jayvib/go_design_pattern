@@ -1,17 +1,17 @@
 package log_appender
 
 import (
-	"io"
 	"fmt"
+	"io"
 	"os"
 )
 
 type MessageA struct {
-	Msg string
+	Msg    string
 	Output io.Writer
 }
 
-func(m *MessageA) Accept(v Visitor) {
+func (m *MessageA) Accept(v Visitor) {
 	v.VisitA(m)
 }
 
@@ -23,15 +23,15 @@ func (m *MessageA) Print() {
 }
 
 type MessageB struct {
-	Msg string
+	Msg    string
 	Output io.Writer
 }
 
-func(mb *MessageB) Accept(v Visitor) {
+func (mb *MessageB) Accept(v Visitor) {
 	v.VisitB(mb)
 }
 
-func(mb *MessageB) Print() {
+func (mb *MessageB) Print() {
 	if mb.Output == nil {
 		mb.Output = os.Stdout
 	}
@@ -47,7 +47,7 @@ type Visitable interface {
 	Accept(Visitor)
 }
 
-type MessageVisitor struct {}
+type MessageVisitor struct{}
 
 func (mv *MessageVisitor) VisitA(a *MessageA) {
 	a.Msg = fmt.Sprintf("%s %s", a.Msg, "(Visited A)")

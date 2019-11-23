@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_design_pattern/behavioral/command/task"
+	"github.com/jayvib/go_design_pattern/behavioral/command/task"
 )
 
 type task1 struct {

@@ -1,10 +1,10 @@
 package house
 
 type House struct {
-	post int
+	post   int
 	window int
-	door int
-	roof int
+	door   int
+	roof   int
 }
 
 type SmallHouse struct {

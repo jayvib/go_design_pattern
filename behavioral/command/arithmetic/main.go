@@ -1,11 +1,11 @@
 package main
 
 import (
-	"math/rand"
-	"fmt"
 	"context"
-	"time"
+	"fmt"
+	"math/rand"
 	"sync"
+	"time"
 )
 
 type Calculator interface {
@@ -17,13 +17,13 @@ type Appender interface {
 }
 
 type Container struct {
-	x, y int
+	x, y       int
 	calculator Calculator
 	resultChan chan int
 }
 
 type ContainerQueue struct {
-	mu sync.Mutex
+	mu         sync.Mutex
 	containers []*Container
 }
 
@@ -41,7 +41,7 @@ func (c *ContainerQueue) Append(container *Container) {
 	c.containers = append(c.containers, container)
 }
 
-func (c*ContainerQueue) Do() {
+func (c *ContainerQueue) Do() {
 	for _, container := range c.containers {
 		fmt.Printf("%d and %d: %d\n", container.x, container.y, container.calculator.Calculate(container.x, container.y))
 	}
@@ -52,15 +52,15 @@ func containerProducer(ctx context.Context, wg *sync.WaitGroup, appender Appende
 	rand.Seed(time.Now().UnixNano())
 	for {
 		fmt.Println("Appending")
-		time.Sleep(time.Duration(rand.Intn(600))*time.Millisecond)
+		time.Sleep(time.Duration(rand.Intn(600)) * time.Millisecond)
 		select {
 		case <-ctx.Done():
 			return
 		default:
 		}
 		newContainer := &Container{
-			x: rand.Int(),
-			y: rand.Int(),
+			x:          rand.Int(),
+			y:          rand.Int(),
 			calculator: calculatorFunc(fn),
 		}
 		appender.Append(newContainer)
@@ -95,8 +95,8 @@ func containerGenerator(ctx context.Context, fn func(int, int) int) <-chan *Cont
 			case containerChan <- newContainer:
 				fmt.Println("Container sent")
 			}
-			
-			res := <- resultChan
+
+			res := <-resultChan
 			fmt.Println("Waiting for the result...")
 			fmt.Println("Received result:", res)
 			fmt.Println("-------------------")
@@ -128,7 +128,7 @@ func main() {
 
 	cq := new(ContainerQueue)
 
-	ctx, cancel := context.WithDeadline(context.Background(), time.Now().Add(10 * time.Second))
+	ctx, cancel := context.WithDeadline(context.Background(), time.Now().Add(10*time.Second))
 	defer cancel()
 
 	wg.Add(3)

@@ -6,9 +6,9 @@ import (
 )
 
 func TestMessageDirector_BuildMessage(t *testing.T) {
-	t.Run("JSON Builder", func(t *testing.T){
+	t.Run("JSON Builder", func(t *testing.T) {
 		msgDirector := &MessageDirector{
-			Text: "This is the body of the message",
+			Text:      "This is the body of the message",
 			Recipient: "Luffy Monkey",
 		}
 		msg, _ := msgDirector.BuildMessage(&JSONMessageBuilder{})
@@ -16,9 +16,9 @@ func TestMessageDirector_BuildMessage(t *testing.T) {
 		assertJSONBuilder(t, msg, wantMsg)
 	})
 
-	t.Run("XML Builder", func(t *testing.T){
+	t.Run("XML Builder", func(t *testing.T) {
 		msgDirector := &MessageDirector{
-			Text: "This is the body of the message",
+			Text:      "This is the body of the message",
 			Recipient: "Luffy Monkey",
 		}
 		msg, _ := msgDirector.BuildMessage(&XMLMessageBuilder{})
@@ -30,6 +30,6 @@ func TestMessageDirector_BuildMessage(t *testing.T) {
 
 func assertJSONBuilder(t *testing.T, msg *Message, msgWant string) {
 	t.Helper()
-	assert.Equal(t,  msgWant, string(msg.Body))
+	assert.Equal(t, msgWant, string(msg.Body))
 	assert.Equal(t, "json", msg.Format)
 }

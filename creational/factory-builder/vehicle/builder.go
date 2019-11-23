@@ -24,4 +24,3 @@ func (m *ManufacturingVehicleDirector) SetVehicleProcess(v VehicleBuildProcess) 
 func (m *ManufacturingVehicleDirector) Build() Vehicle {
 	return m.process.SetDoors().SetWheels().GetVehicle()
 }
-

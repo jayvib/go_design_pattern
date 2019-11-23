@@ -26,12 +26,12 @@ func TestTeamFlyweightFactory_GetTeam(t *testing.T) {
 
 func Test_HighVolume(t *testing.T) {
 	factory := NewTeamFactory()
-	teams := make([]*Team, 500000 * 2)
+	teams := make([]*Team, 500000*2)
 	for i := 0; i < 500000; i++ {
 		teams[i] = factory.GetTeam(TEAM_A)
 	}
 
-	for i := 500000; i < 2 * 500000; i++ {
+	for i := 500000; i < 2*500000; i++ {
 		teams[i] = factory.GetTeam(TEAM_B)
 	}
 

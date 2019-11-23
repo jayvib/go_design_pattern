@@ -20,7 +20,6 @@ func (p Person) Eat(f string) string {
 	return fmt.Sprintf("%s is eating %s", p.name, f)
 }
 
-
 type EaterFunc func(string) string
 
 func (e EaterFunc) Eat(food string) string {
@@ -44,7 +43,7 @@ func BGM(song string) Decorator {
 		return EaterFunc(func(f string) string {
 			eat := e.Eat(f)
 			bgm := "Playing: " + song
-			eat = fmt.Sprintf("|%s|%s|%s|", bgm, eat , bgm)
+			eat = fmt.Sprintf("|%s|%s|%s|", bgm, eat, bgm)
 			return eat
 		})
 	}

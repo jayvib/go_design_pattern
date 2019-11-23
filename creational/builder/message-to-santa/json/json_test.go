@@ -11,7 +11,7 @@ func TestJSONMessageBuilder(t *testing.T) {
 		builderMsg: new(JSONMessageBuilder),
 		msg: message{
 			recipient: "Santa Clause",
-			text: "I will be a good boy from now on...",
+			text:      "I will be a good boy from now on...",
 		},
 	}
 

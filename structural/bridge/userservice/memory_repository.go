@@ -9,9 +9,9 @@ import (
 // This is just a simple implementation.
 
 type MemoryRepository struct {
-	d map[int]*User
+	d     map[int]*User
 	count int
-	rwmu sync.RWMutex
+	rwmu  sync.RWMutex
 }
 
 func (r *MemoryRepository) Create(ctx context.Context, user *User) error {
@@ -56,4 +56,3 @@ func (r *MemoryRepository) GetAll(ctx context.Context) ([]*User, error) {
 	}
 	return out, nil
 }
-

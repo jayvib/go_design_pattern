@@ -1,6 +1,5 @@
 package birthday_party
 
-
 func NewBirthdayEvent(day string) *BirthdayEvent {
 	return &BirthdayEvent{
 		Day: day,
@@ -8,7 +7,7 @@ func NewBirthdayEvent(day string) *BirthdayEvent {
 }
 
 type BirthdayEvent struct {
-	Day string
+	Day      string
 	Attendee []string
 }
 

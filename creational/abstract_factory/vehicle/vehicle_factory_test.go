@@ -1,8 +1,8 @@
 package vehicle
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestMotorbikeFactory(t *testing.T) {
@@ -17,4 +17,3 @@ func TestMotorbikeFactory(t *testing.T) {
 	}
 	fmt.Printf("Sports motorbike has %s wheels and %s seats\n", sportMotorbike.NumWheels(), sportMotorbike.NumSeats())
 }
-

@@ -8,11 +8,11 @@ type Notifier interface {
 }
 
 type Observers struct {
-	mux sync.Mutex
+	mux       sync.Mutex
 	notifiers map[string]Notifier
 }
 
-func(o *Observers) Subscribe(n ...Notifier) {
+func (o *Observers) Subscribe(n ...Notifier) {
 	for _, param := range n {
 		if _, ok := o.notifiers[param.Name()]; !ok {
 			o.notifiers[param.Name()] = param
@@ -35,7 +35,3 @@ func (o *Observers) Trigger(message string) {
 		observer.Notify(message)
 	}
 }
-
-
-
-

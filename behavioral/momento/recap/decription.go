@@ -40,5 +40,3 @@ func (c *careTaker) Momento(i int) (momento, error) {
 	}
 	return c.momentoList[i], nil
 }
-
-

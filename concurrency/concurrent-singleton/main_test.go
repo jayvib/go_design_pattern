@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func TestStartInstance(t *testing.T){
+func TestStartInstance(t *testing.T) {
 	singleton := GetInstance()
 	singleton2 := GetInstance()
 
@@ -20,7 +20,7 @@ func TestStartInstance(t *testing.T){
 	fmt.Printf("Before looop, current count is %d\n", singleton.GetCount())
 
 	var val int
-	if val != n * 2 {
+	if val != n*2 {
 		val = singleton.GetCount()
 		time.Sleep(10 * time.Millisecond)
 	}

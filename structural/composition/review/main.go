@@ -29,5 +29,3 @@ type SwimmerAthlete struct {
 func DoSometingWithAthlete(t Trainer) {
 	t.Train()
 }
-
-

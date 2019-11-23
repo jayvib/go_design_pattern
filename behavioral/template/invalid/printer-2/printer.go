@@ -9,7 +9,7 @@ type PrinterTemplate interface {
 	close() string
 }
 
-type AbstractPrinter struct {}
+type AbstractPrinter struct{}
 
 func (AbstractPrinter) Display(printer PrinterTemplate) string {
 	return fmt.Sprintf("%s %s %s", printer.open(), printer.print(), printer.close())
@@ -19,7 +19,6 @@ type charDisplay struct {
 	AbstractPrinter
 	Char rune
 }
-
 
 func (c *charDisplay) open() string {
 	return "<<"
@@ -32,4 +31,3 @@ func (c *charDisplay) print() string {
 func (c *charDisplay) close() string {
 	return ">>"
 }
-

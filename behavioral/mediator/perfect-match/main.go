@@ -13,16 +13,16 @@ func funDisplayDecorator(d resultDisplayer) resultDisplayer {
 }
 
 type resultDisplayer interface {
- 	display()
- }
+	display()
+}
 
-type Jayson struct {}
+type Jayson struct{}
 
 func (Jayson) name() string {
 	return "Jayson"
 }
 
-type Althea struct {}
+type Althea struct{}
 
 func (Althea) name() string {
 	return "Althea"
@@ -45,8 +45,8 @@ func sayWhat(p person, i interface{}) resultDisplayer {
 			t.p = p
 			return t
 		case int:
-			return intDisplayerFunc(func(){
-				fmt.Printf("%d %s\n", i,p.name())
+			return intDisplayerFunc(func() {
+				fmt.Printf("%d %s\n", i, p.name())
 			})
 		}
 	case Althea:
@@ -60,7 +60,7 @@ func sayWhat(p person, i interface{}) resultDisplayer {
 			t.p = p
 			return t
 		case int:
-			return intDisplayerFunc(func(){
+			return intDisplayerFunc(func() {
 				fmt.Printf("%d %s\n", i, p.name())
 			})
 		}
@@ -71,6 +71,7 @@ func sayWhat(p person, i interface{}) resultDisplayer {
 type one struct {
 	p person
 }
+
 func (o one) display() {
 	fmt.Printf("one '%s'\n", o.p.name())
 }
@@ -78,6 +79,7 @@ func (o one) display() {
 type two struct {
 	p person
 }
+
 func (t two) display() {
 	fmt.Printf("two '%s'\n", t.p.name())
 }
@@ -105,9 +107,3 @@ func main() {
 	sayWhat(althea, two{}).display()
 	sayWhat(althea, 3).display()
 }
-
-
-
-
-
-

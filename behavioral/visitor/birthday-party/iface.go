@@ -8,7 +8,6 @@ type Visitor interface {
 	Visit(retriever NameRetriever)
 }
 
-
 type Visitable interface {
 	Accept(Visitor)
 }

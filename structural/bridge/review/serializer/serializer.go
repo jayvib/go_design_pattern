@@ -9,20 +9,20 @@ type SerializerAPI interface {
 	Serialize(arg interface{}) ([]byte, error)
 }
 
-type JSONSerializer struct {}
+type JSONSerializer struct{}
 
 func (JSONSerializer) Serialize(arg interface{}) ([]byte, error) {
 	return nil, errors.New("not implemented yet")
 }
 
-type XMLSerializer struct {}
+type XMLSerializer struct{}
 
-func(XMLSerializer) Serialize(arg interface{}) ([]byte, error) {
+func (XMLSerializer) Serialize(arg interface{}) ([]byte, error) {
 	return nil, errors.New("not implemented yet")
 }
 
 // Printer describes a general printer object
-type Printer interface{
+type Printer interface {
 	Print() error
 }
 
@@ -38,7 +38,7 @@ func (s *SuperSerializedPrinter) Do() error {
 	return errors.New("not implemented yet")
 }
 
-type ConsolePrinter struct {}
+type ConsolePrinter struct{}
 
 func (ConsolePrinter) Print() error {
 	return errors.New("not implemented yet")

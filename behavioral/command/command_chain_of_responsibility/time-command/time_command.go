@@ -33,5 +33,3 @@ func (f *Logger) Next(c Command) {
 		f.NextChain.Next(c)
 	}
 }
-
-

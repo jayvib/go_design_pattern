@@ -7,7 +7,7 @@ type AbstractVehicleFactory interface {
 }
 
 const (
-	CarFactoryType = 1
+	CarFactoryType       = 1
 	MotorbikeFactoryType = 2
 )
 

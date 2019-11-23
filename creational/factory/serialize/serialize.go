@@ -6,7 +6,7 @@ type format int
 
 const (
 	JSON format = 0
-	XML format  = 1
+	XML  format = 1
 )
 
 type Serializer interface {
@@ -25,7 +25,3 @@ func NewSerializer(f format) (Serializer, error) {
 		return nil, errors.New("Format doesn't recognized.")
 	}
 }
-
-
-
-

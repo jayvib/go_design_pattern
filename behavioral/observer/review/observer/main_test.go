@@ -6,7 +6,7 @@ import (
 )
 
 type TestObserver struct {
-	ID int
+	ID      int
 	Message string
 }
 
@@ -21,7 +21,7 @@ func TestSubject(t *testing.T) {
 	testObserver3 := &TestObserver{3, ""}
 	publisher := Publisher{}
 
-	t.Run("AddObserver", func(t *testing.T){
+	t.Run("AddObserver", func(t *testing.T) {
 		publisher.AddObserver(testObserver1)
 		publisher.AddObserver(testObserver2)
 		publisher.AddObserver(testObserver3)
@@ -31,7 +31,7 @@ func TestSubject(t *testing.T) {
 		}
 	})
 
-	t.Run("RemoveObserver", func(t *testing.T){
+	t.Run("RemoveObserver", func(t *testing.T) {
 		publisher.RemoveObserver(testObserver2)
 
 		if len(publisher.ObserversList) != 2 {
@@ -48,7 +48,7 @@ func TestSubject(t *testing.T) {
 		}
 	})
 
-	t.Run("Notify", func(t *testing.T){
+	t.Run("Notify", func(t *testing.T) {
 		if len(publisher.ObserversList) == 0 {
 			t.Error("Nothing to test.")
 		}

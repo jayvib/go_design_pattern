@@ -12,15 +12,14 @@ import (
 // Refined Abstraction
 // Implementation
 
-
 // https://refactoring.guru/design-patterns/bridge
 
 //go:generate mockery --name Service
 
 type User struct {
-	ID int
-	FirstName string
-	LastName string
+	ID          int
+	FirstName   string
+	LastName    string
 	CreatedDate *time.Time
 }
 

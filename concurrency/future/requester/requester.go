@@ -8,7 +8,7 @@ type ExecuteStringFunc func() (string, error)
 
 type MaybeString struct {
 	successFunc SuccessFunc
-	failFunc FailFunc
+	failFunc    FailFunc
 }
 
 func (s *MaybeString) Success(f SuccessFunc) *MaybeString {

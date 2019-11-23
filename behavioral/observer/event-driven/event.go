@@ -32,9 +32,9 @@ func NewEvent(name string, data interface{}) *Event {
 
 // eventer is an implementation for Eventer
 type eventer struct {
-	eventnames map[string]string
-	in eventChannel
-	outs map[eventChannel]eventChannel
+	eventnames  map[string]string
+	in          eventChannel
+	outs        map[eventChannel]eventChannel
 	eventsMutex sync.Mutex
 }
 

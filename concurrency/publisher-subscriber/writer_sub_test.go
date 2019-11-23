@@ -16,7 +16,6 @@ func (m *mockWriter) Write(p []byte) (int, error) {
 	return len(p), nil
 }
 
-
 func TestSubscriber(t *testing.T) {
 	sub := NewWriterSubscriber(0, nil)
 	msg := "Hello"

@@ -6,7 +6,7 @@ import (
 )
 
 func TestSerializerAPI(t *testing.T) {
-	t.Run("JSONSerializer", func(t *testing.T){
+	t.Run("JSONSerializer", func(t *testing.T) {
 		var jsonSerializer serializer.JSONSerializer
 	})
 }

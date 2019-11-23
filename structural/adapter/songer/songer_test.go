@@ -1,9 +1,9 @@
 package songer
 
 import (
-	"testing"
-	"github.com/stretchr/testify/assert"
 	"fmt"
+	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestSonger(t *testing.T) {

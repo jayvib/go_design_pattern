@@ -1,15 +1,15 @@
 package storage
 
 import (
-	"testing"
 	"github.com/stretchr/testify/mock"
+	"testing"
 )
 
 type anotherMockDB struct {
 	mock.Mock
 }
 
-func(m *anotherMockDB) Find(text string) string {
+func (m *anotherMockDB) Find(text string) string {
 	args := m.Called(text)
 	return args.String(0)
 }
@@ -22,7 +22,7 @@ func TestMockDB(t *testing.T) {
 
 func TestDB(t *testing.T) {
 	var database DB
-	t.Run("Old Database", func(t *testing.T){
+	t.Run("Old Database", func(t *testing.T) {
 		mockDB := newMockDB()
 		database = mockDB
 		err := database.Put("test")
@@ -40,7 +40,7 @@ func TestDB(t *testing.T) {
 		}
 	})
 
-	t.Run("New Database", func(t *testing.T){
+	t.Run("New Database", func(t *testing.T) {
 
 		latestStorage := newLatestStorage(newMockDB())
 		err := latestStorage.Store("test1")
@@ -63,6 +63,5 @@ func TestDB(t *testing.T) {
 			t.Fatal("empty result")
 		}
 	})
-	
-}
 
+}

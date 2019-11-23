@@ -12,7 +12,7 @@ func (pv *PriceVisitor) Visit(p ProductInfoRetriever) {
 
 type NamePrinter struct {
 	ProductList string
-	Names string
+	Names       string
 }
 
 func (n *NamePrinter) Visit(p ProductInfoRetriever) {

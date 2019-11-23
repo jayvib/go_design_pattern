@@ -18,7 +18,7 @@ type Template interface {
 	ExecuteAlgorithm(retriever MessageRetriever) string
 }
 
-type TemplateImp struct {}
+type TemplateImp struct{}
 
 func (t *TemplateImp) first() string {
 	return "hello"

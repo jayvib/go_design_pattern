@@ -1,7 +1,7 @@
 package email
 
 type MessageDirector struct {
-	Text string
+	Text      string
 	Recipient string
 }
 

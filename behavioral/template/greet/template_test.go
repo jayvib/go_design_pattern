@@ -14,7 +14,7 @@ func (m *TestStruct) Message() string {
 }
 
 func TestTemplate_ExecuteAlgorithm(t *testing.T) {
-	t.Run("Using interfaces", func(t *testing.T){
+	t.Run("Using interfaces", func(t *testing.T) {
 		s := &TestStruct{}
 		s.Template = &TemplateImp{}
 		res := s.ExecuteAlgorithm(s)
@@ -23,7 +23,7 @@ func TestTemplate_ExecuteAlgorithm(t *testing.T) {
 			t.Errorf("Expected string '%s' wasn't found on returned string\n", expected)
 		}
 
-		t.Run("Using Anonymous Function", func(t *testing.T){
+		t.Run("Using Anonymous Function", func(t *testing.T) {
 			expected = "WORLD"
 			mFunc := func() string {
 				return "WORLD"

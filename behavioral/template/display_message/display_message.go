@@ -12,7 +12,7 @@ type MessageRetriever interface {
 	Message() string
 }
 
-type templateDisplayer struct {}
+type templateDisplayer struct{}
 
 func (t templateDisplayer) open() string {
 	return ">>> Opening"

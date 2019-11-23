@@ -11,7 +11,7 @@ import (
 type ProtectionProxyRepository struct {
 	username string
 	password string
-	repo userservice.Repository
+	repo     userservice.Repository
 }
 
 func (r *ProtectionProxyRepository) authenticate() bool {
@@ -21,7 +21,6 @@ func (r *ProtectionProxyRepository) authenticate() bool {
 	}
 	return false
 }
-
 
 func (r *ProtectionProxyRepository) Create(ctx context.Context, user *userservice.User) error {
 	if !r.authenticate() {

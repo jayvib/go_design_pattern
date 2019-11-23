@@ -1,9 +1,9 @@
 package birthday_party
 
 import (
-	"text/template"
 	"log"
 	"os"
+	"text/template"
 )
 
 type EventCoordinator struct {

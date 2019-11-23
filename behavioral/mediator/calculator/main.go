@@ -48,5 +48,3 @@ func Sum(a, b interface{}) interface{} {
 	}
 
 }
-
-

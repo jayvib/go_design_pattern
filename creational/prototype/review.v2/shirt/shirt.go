@@ -27,19 +27,19 @@ const (
 var whiteShirtPrototype = &Shirt{
 	Color: White,
 	Price: 15,
-	SKU: "empty",
+	SKU:   "empty",
 }
 
 var blackShirtPrototype = &Shirt{
 	Color: Black,
 	Price: 16,
-	SKU: "empty",
+	SKU:   "empty",
 }
 
 var blueShirtPrototype = &Shirt{
 	Color: Blue,
 	Price: 17,
-	SKU: "empty",
+	SKU:   "empty",
 }
 
 func GetShirtClone(color int) ItemInfoGetter {

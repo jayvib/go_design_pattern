@@ -18,7 +18,7 @@ func TestBarrier(t *testing.T) {
 		t.Log(result)
 	})
 
-	t.Run("One endpoint incorrect", func(t *testing.T){
+	t.Run("One endpoint incorrect", func(t *testing.T) {
 		endpoints := []string{
 			"http://malformed-url",
 			"http://httpbin.org/User-Agent",
@@ -30,7 +30,7 @@ func TestBarrier(t *testing.T) {
 		t.Log(result)
 	})
 
-	t.Run("Very short timeout", func(t *testing.T){
+	t.Run("Very short timeout", func(t *testing.T) {
 		endpoints := []string{
 			"http://httpbin.org/headers",
 			"http://httpbin.org/User-Agent",

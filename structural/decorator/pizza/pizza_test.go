@@ -1,9 +1,9 @@
 package pizza
 
 import (
+	"fmt"
 	"strings"
 	"testing"
-	"fmt"
 )
 
 func TestPizzaDecorator_AddIngredient(t *testing.T) {
@@ -42,7 +42,7 @@ func TestMeat_AddIngredient(t *testing.T) {
 			"meat", meatResult)
 	}
 
-	t.Run("Onion", func(t *testing.T){
+	t.Run("Onion", func(t *testing.T) {
 		deco := AddOnionIngredientDecorator(meat)
 		res, err := deco.AddIngredient()
 		if err != nil {
@@ -53,7 +53,7 @@ func TestMeat_AddIngredient(t *testing.T) {
 		}
 		fmt.Println(res)
 
-		t.Run("Marshmallow", func(t *testing.T){
+		t.Run("Marshmallow", func(t *testing.T) {
 			deco = AddMarshmallowIngredientDecorator(deco)
 			res, err = deco.AddIngredient()
 			if err != nil {

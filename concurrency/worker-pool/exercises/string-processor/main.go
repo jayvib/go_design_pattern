@@ -23,7 +23,7 @@ func NewStringRequest(s string, id int, wg *sync.WaitGroup) Request {
 
 // Request is the data model
 type Request struct {
-	Data interface{}
+	Data    interface{}
 	Handler RequestHandler
 }
 
@@ -38,7 +38,7 @@ type WorkerLauncher interface {
 
 func NewDispatcher(ctx context.Context, size int) Dispatcher {
 	return &dispatcher{
-		in: make(chan Request, size),
+		in:  make(chan Request, size),
 		ctx: ctx,
 	}
 }
@@ -64,7 +64,7 @@ type Dispatcher interface {
 // Implement the Dispatcher
 
 type dispatcher struct {
-	in chan Request
+	in  chan Request
 	ctx context.Context
 }
 
@@ -83,4 +83,3 @@ func (d *dispatcher) MakeRequest(r Request) {
 func (d *dispatcher) Stop() {
 	close(d.in)
 }
-

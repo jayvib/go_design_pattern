@@ -35,7 +35,6 @@ func (db *mockDB) Find(text string) string {
 	return text
 }
 
-
 func newLatestStorage(db DB) *LatestStorage {
 	return &LatestStorage{
 		db: db,

@@ -1,14 +1,13 @@
 package singleton
 
 import (
-	"testing"
 	"reflect"
+	"testing"
 )
-
 
 func TestGetInstance(t *testing.T) {
 	s := GetInstance()
-	s.AddOne()	
+	s.AddOne()
 
 	concrete1 := s.(*Count)
 	if concrete1.count != 1 {
@@ -26,5 +25,5 @@ func TestGetInstance(t *testing.T) {
 	if !reflect.DeepEqual(s, s2) {
 		t.Error("Expecting first instance is the same with the second instance")
 	}
-	
+
 }

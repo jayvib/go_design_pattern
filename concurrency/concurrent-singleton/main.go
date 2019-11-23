@@ -10,16 +10,16 @@ func init() {
 	var count int
 
 	go func(addCh <-chan bool, getCountCh <-chan chan int, quitCh <-chan bool) {
-			for {
-				select {
-				case <-addCh:
-					count++
-				case ch := <-getCountCh:
-					ch <- count
-				case <-quitCh:
-					return // end the goroutine.
-				}
+		for {
+			select {
+			case <-addCh:
+				count++
+			case ch := <-getCountCh:
+				ch <- count
+			case <-quitCh:
+				return // end the goroutine.
 			}
+		}
 	}(addCh, getCountCh, quitCh)
 }
 

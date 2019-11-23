@@ -22,7 +22,7 @@ func (m *MaidTemplate) Do() string {
 }
 
 type MaiderImpl struct {
-	Name string
+	Name           string
 	Responsibility string
 }
 

@@ -5,16 +5,15 @@ import (
 	"io"
 )
 
-
 func NewWriterSubscriber(id int, out io.Writer) Subscriber {
 	return &writerSubscriber{
-		id: id,
+		id:     id,
 		Writer: out,
 	}
 }
 
 type writerSubscriber struct {
-	id int
+	id     int
 	Writer io.Writer
 }
 
@@ -23,5 +22,3 @@ func (s *writerSubscriber) Notify(msg interface{}) error {
 }
 
 func (s *writerSubscriber) Close() {}
-
-

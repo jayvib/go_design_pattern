@@ -20,7 +20,6 @@ func TestShoesPrototype(t *testing.T) {
 		t.Fatal(err.Error())
 	}
 
-
 	blackShoe, err := cloner.Clone(black)
 	if err != nil {
 		t.Fatal(err.Error())

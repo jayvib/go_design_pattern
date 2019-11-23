@@ -1,9 +1,9 @@
 package future
 
 import (
-	"testing"
-	"sync"
 	"github.com/pkg/errors"
+	"sync"
+	"testing"
 	"time"
 )
 
@@ -16,7 +16,7 @@ func timeout(t *testing.T, wg *sync.WaitGroup) {
 
 func TestStringOrError_Execute(t *testing.T) {
 	future := &MaybeString{}
-	t.Run("Success result", func(t *testing.T){
+	t.Run("Success result", func(t *testing.T) {
 		var wg sync.WaitGroup
 		wg.Add(1)
 		future.Success(func(s string) {
@@ -32,7 +32,7 @@ func TestStringOrError_Execute(t *testing.T) {
 		})
 	})
 
-	t.Run("Failed result", func(t *testing.T){
+	t.Run("Failed result", func(t *testing.T) {
 		var wg sync.WaitGroup
 		wg.Add(1)
 		future.Success(func(s string) {

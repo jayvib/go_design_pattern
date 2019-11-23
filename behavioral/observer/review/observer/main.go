@@ -31,8 +31,3 @@ func (s *Publisher) NotifyObservers(m string) {
 		observer.Notify(m)
 	}
 }
-
-
-
-
-

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go_design_pattern/concurrency/worker-pool/review"
+	"github.com/jayvib/go_design_pattern/concurrency/worker-pool/review"
 )
 
 func main() {

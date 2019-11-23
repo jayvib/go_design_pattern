@@ -25,14 +25,14 @@ func (i *ImageSquare) Print() error {
 	)
 
 	bgColor := image.Uniform{ // create a color object
-		C: color.RGBA{R: 70, G: 70, B:70, A: 0},
+		C: color.RGBA{R: 70, G: 70, B: 70, A: 0},
 	}
 	draw.Draw(bgImage, bgImage.Bounds(), &bgColor, origin, draw.Src) // draw an image
 
 	squareWidth := 200
 	squareHeight := 200
 	squareColor := image.Uniform{
-		C: color.RGBA{R:255, G: 0, B: 0, A: 1},
+		C: color.RGBA{R: 255, G: 0, B: 0, A: 1},
 	}
 
 	square := image.Rect(0, 0, squareWidth, squareHeight)
@@ -43,7 +43,7 @@ func (i *ImageSquare) Print() error {
 
 	squareImg := image.NewRGBA(square)
 	draw.Draw(bgImage, squareImg.Bounds(), &squareColor, origin, draw.Src)
-	quality := &jpeg.Options{ Quality: 75 }
+	quality := &jpeg.Options{Quality: 75}
 
 	if err := jpeg.Encode(i, bgImage, quality); err != nil {
 		return err

@@ -16,13 +16,13 @@ func (c *counter) AddOne() int {
 }
 
 var (
-	once sync.Once
-	defaultCounter *counter
+	once                           sync.Once
+	defaultCounter                 *counter
 	defaultCounterInitializedCalls int // use for testing
 )
 
 func GetDefaultCounter() Counter {
-	once.Do(func(){
+	once.Do(func() {
 		defaultCounter = &counter{}
 		defaultCounterInitializedCalls++
 	})

@@ -4,7 +4,7 @@ type Motorbike interface {
 	GetMotorbikeType() int
 }
 
-type SportMotorbike struct {}
+type SportMotorbike struct{}
 
 func (s *SportMotorbike) NumSeats() int {
 	return 0
@@ -18,7 +18,7 @@ func (s *SportMotorbike) GetMotorbikeType() int {
 	return 0
 }
 
-type CruiseMotorbike struct {}
+type CruiseMotorbike struct{}
 
 func (c *CruiseMotorbike) NumSeats() int {
 	return 0

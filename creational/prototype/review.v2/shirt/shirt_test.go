@@ -7,12 +7,12 @@ import (
 )
 
 func TestGetShirtCloner(t *testing.T) {
-	t.Run("when getting the shirt clone it should not be nil", func(t *testing.T){
+	t.Run("when getting the shirt clone it should not be nil", func(t *testing.T) {
 		shirtCloner := GetShirtCloner()
 		require.NotNil(t, shirtCloner)
 	})
 
-	t.Run("when cloning two instances there memory address should not the same", func(t *testing.T){
+	t.Run("when cloning two instances there memory address should not the same", func(t *testing.T) {
 		shirtCloner := GetShirtCloner()
 		require.NotNil(t, shirtCloner)
 
@@ -20,7 +20,7 @@ func TestGetShirtCloner(t *testing.T) {
 		require.NotNil(t, shirt)
 
 		shirt2 := shirtCloner.GetClone(White)
-		assert.False(t, shirt==shirt2)
+		assert.False(t, shirt == shirt2)
 
 		item := shirt.(*Shirt)
 		item.SKU = "W-SHIRT1"

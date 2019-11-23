@@ -11,7 +11,7 @@ import (
 // the life cycle, and access to the existing service.
 
 type CachedProxyRepository struct {
-	repo userservice.Repository
+	repo  userservice.Repository
 	cache map[int]*userservice.User // I could use LRU
 }
 
@@ -58,4 +58,3 @@ func (c *CachedProxyRepository) Get(ctx context.Context, id int) (*userservice.U
 func (c *CachedProxyRepository) GetAll(ctx context.Context) ([]*userservice.User, error) {
 	return c.repo.GetAll(ctx)
 }
-

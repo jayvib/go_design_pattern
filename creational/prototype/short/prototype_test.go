@@ -5,13 +5,10 @@ import (
 	"testing"
 )
 
-
-
 func TestShortCloner(t *testing.T) {
 	cloner := ShortCloner{}
 
-
-	t.Run("Address Testing", func(t *testing.T){
+	t.Run("Address Testing", func(t *testing.T) {
 		item1, err := cloner.GetClone(Black)
 		checkErr(t, err)
 		if item1 == BlackShortPrototype {
@@ -31,7 +28,7 @@ func TestShortCloner(t *testing.T) {
 		}
 	})
 
-	t.Run("Data Modification", func(t *testing.T){
+	t.Run("Data Modification", func(t *testing.T) {
 		item1, err := cloner.GetClone(Blue)
 		checkErr(t, err)
 
