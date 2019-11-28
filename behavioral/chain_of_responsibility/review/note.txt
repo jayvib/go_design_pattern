@@ -1,0 +1,3 @@
+The objective of the chan responsibility is to provide to the developer a way
+to chains actions at runtim.The actions are chained to each other and each link will execute some action and pass the request
+to the next link.

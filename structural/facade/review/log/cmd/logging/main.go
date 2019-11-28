@@ -5,5 +5,9 @@ import (
 )
 
 func main() {
+<<<<<<< HEAD
+=======
+	log.SetLogger(log.Logrus)
+>>>>>>> 659fa38a1229686115789f5458779525e385a844
 	log.Println("Hello Logging World!")
 }
