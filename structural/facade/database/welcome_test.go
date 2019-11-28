@@ -2,7 +2,7 @@ package database_test
 
 import (
 	"fmt"
-	"github.com/go_design_pattern/structural/facade/database"
+	"github.com/jayvib/go_design_pattern/structural/facade/database"
 	"testing"
 )
 

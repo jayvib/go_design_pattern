@@ -1,8 +1,8 @@
 package log_appender
 
 import (
-	"testing"
 	"github.com/magiconair/properties/assert"
+	"testing"
 )
 
 type TestHelper struct {
@@ -18,9 +18,9 @@ func Test_Overall(t *testing.T) {
 	testHelper := new(TestHelper)
 	visitor := new(MessageVisitor)
 
-	t.Run("MessageA test", func(t *testing.T){
+	t.Run("MessageA test", func(t *testing.T) {
 		msg := &MessageA{
-			Msg: "Hello World",
+			Msg:    "Hello World",
 			Output: testHelper,
 		}
 
@@ -30,9 +30,9 @@ func Test_Overall(t *testing.T) {
 		assert.Equal(t, testHelper.Received, "A: Hello World (Visited A)", "expected result was incorrect")
 	})
 
-	t.Run("MessageB test", func(t *testing.T){
+	t.Run("MessageB test", func(t *testing.T) {
 		msg := &MessageB{
-			Msg: "Hello World",
+			Msg:    "Hello World",
 			Output: testHelper,
 		}
 

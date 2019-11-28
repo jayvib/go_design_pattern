@@ -6,10 +6,10 @@ type ExecuteFunc func() (string, error)
 
 type MaybeString struct {
 	successFunc SuccessFunc
-	failFunc FailFunc
+	failFunc    FailFunc
 }
 
-func (m *MaybeString) Success(fn SuccessFunc)  *MaybeString {
+func (m *MaybeString) Success(fn SuccessFunc) *MaybeString {
 	m.successFunc = fn
 	return m
 }

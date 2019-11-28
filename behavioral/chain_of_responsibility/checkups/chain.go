@@ -46,7 +46,7 @@ func Decorate(c ChainCheckup, decorators ...Decorator) ChainCheckup {
 
 func IDCheckupFunc() Decorator {
 	return func(chain ChainCheckup) ChainCheckup {
-		return DecorateFunc(func(name string){
+		return DecorateFunc(func(name string) {
 			fmt.Printf("Checking the ID of %s\n", name)
 			chain.Next(name)
 		})
@@ -55,7 +55,7 @@ func IDCheckupFunc() Decorator {
 
 func HealthCheckupFunc() Decorator {
 	return func(chain ChainCheckup) ChainCheckup {
-		return DecorateFunc(func(name string){
+		return DecorateFunc(func(name string) {
 			fmt.Printf("Checking the Health of %s\n", name)
 			chain.Next(name)
 		})
@@ -64,10 +64,9 @@ func HealthCheckupFunc() Decorator {
 
 func OralCheckupFunc(checker string) Decorator {
 	return func(chain ChainCheckup) ChainCheckup {
-		return DecorateFunc(func(name string){
+		return DecorateFunc(func(name string) {
 			fmt.Printf("Checking the mouth of %s with %s\n", name, checker)
 			chain.Next(name)
 		})
 	}
 }
-

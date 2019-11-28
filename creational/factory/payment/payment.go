@@ -29,9 +29,9 @@ type PaymentMethod interface {
 func GetPaymentMethod(m Method) (PaymentMethod, error) {
 	switch m {
 	case Cash:
-		return new(CashPM), nil
+		return new(CashPM), nil // this needs to be singleton
 	case DebitCard:
-		return new(CreditCardPayment), nil
+		return new(CreditCardPayment), nil // this needs to be singleton
 	default:
 		return nil, errors.New(fmt.Sprintf("payment method %d does not recognized", m))
 	}

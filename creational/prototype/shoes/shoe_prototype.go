@@ -15,7 +15,7 @@ var blackShoePrototype = &Shoe{
 	Color: black,
 }
 
-var blueShoePrototype = &Shoe {
+var blueShoePrototype = &Shoe{
 	Price: 17,
 	Color: blue,
 }

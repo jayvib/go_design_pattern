@@ -12,4 +12,3 @@ type Visitor interface {
 type Visitable interface {
 	Accept(Visitor)
 }
-

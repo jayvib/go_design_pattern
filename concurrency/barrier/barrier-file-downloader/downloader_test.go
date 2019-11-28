@@ -36,7 +36,7 @@ func TestDownloader_Download(t *testing.T) {
 				return err
 			}
 			return nil
-		} ,
+		},
 	}
 	downloader := NewDownloader(item)
 	itemChan := downloader.Download()

@@ -18,6 +18,6 @@ func NewBuildComplex(s HouseComponentStructurer) *BuildComplex {
 	}
 }
 
-func(b *BuildComplex) Build() {
+func (b *BuildComplex) Build() {
 	b.structurer.SetPost().SetRoof().SetDoor().SetWindow()
 }

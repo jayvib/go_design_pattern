@@ -26,4 +26,3 @@ func (d Database) GetData(key string) (value string, err error) {
 func (d Database) DeleteData(key string) error {
 	return d.db.Delete(key)
 }
-

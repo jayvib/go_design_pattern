@@ -20,7 +20,7 @@ type Visitable interface {
 }
 
 type value struct {
-	given int
+	given  int
 	result int
 }
 
@@ -52,8 +52,8 @@ func main() {
 	var visitable Visitable
 	var val Value
 
-	visitable = &multiplierBy{ multiplier: 10 }
-	val = &value{ given: 5 }
+	visitable = &multiplierBy{multiplier: 10}
+	val = &value{given: 5}
 
 	visitable.Accept(val)
 

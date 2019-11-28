@@ -8,7 +8,7 @@ func TestAdapter(t *testing.T) {
 
 	adapter := &PrinterAdapter{
 		OldPrinter: &MyLegacyPrinter{},
-		Msg: msg,
+		Msg:        msg,
 	}
 
 	if adapter.PrintStored() != expected {

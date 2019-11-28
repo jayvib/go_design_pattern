@@ -14,12 +14,12 @@ var defaultTimeout = time.Duration(2 * time.Minute)
 
 type Response struct {
 	resp *http.Response
-	err error
+	err  error
 }
 
 type Item struct {
 	Response
-	url string
+	url       string
 	processor func(r *http.Response) error
 }
 
@@ -29,9 +29,9 @@ type Downloader interface {
 
 type downloader struct {
 	timeout time.Duration
-	pool int
-	items []*Item
-	lock sync.Mutex
+	pool    int
+	items   []*Item
+	lock    sync.Mutex
 }
 
 func (d *downloader) Download() <-chan Item {
@@ -51,8 +51,8 @@ func NewDownloader(items ...*Item) *downloader {
 	}
 	return &downloader{
 		timeout: defaultTimeout,
-		pool: 1,
-		items: i,
+		pool:    1,
+		items:   i,
 	}
 }
 

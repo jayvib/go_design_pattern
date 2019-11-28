@@ -1,17 +1,17 @@
 package barrier
 
 import (
+	"bytes"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
-	"bytes"
-	"io"
 	"time"
 )
 
 type barrierResp struct {
-	Err error
+	Err  error
 	Resp string
 }
 
@@ -24,9 +24,9 @@ func captureBarrierOutput(endpoints ...string) string {
 
 	out := make(chan string)
 	go func() {
-		var buf bytes.Buffer // store the content to the buffer
+		var buf bytes.Buffer  // store the content to the buffer
 		io.Copy(&buf, reader) // this will block until the reader has something to read
-		out <- buf.String() // send the content to the out channel
+		out <- buf.String()   // send the content to the out channel
 	}()
 
 	barrier(endpoints...)

@@ -2,13 +2,13 @@ package print
 
 import (
 	"fmt"
-	"go_design_pattern/behavioral/strategy/print/shapes"
+	"github.com/jayvib/go_design_pattern/behavioral/strategy/print/shapes"
 	"io"
 	"os"
 )
 
 const (
-	TEXT_STRATEGY = "text"
+	TEXT_STRATEGY  = "text"
 	IMAGE_STRATEGY = "image"
 )
 
@@ -21,7 +21,6 @@ type StrategyV2 interface {
 	SetLog(io.Writer)
 	SetWriter(io.Writer)
 }
-
 
 func NewPrinter(s string) (StrategyV2, error) {
 	switch s {

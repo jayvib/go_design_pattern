@@ -12,7 +12,7 @@ type Cloner interface {
 	Clone(s int) (ItemInfoGetter, error)
 }
 
-type ShoeCloner struct {}
+type ShoeCloner struct{}
 
 func (ShoeCloner) Clone(s int) (ItemInfoGetter, error) {
 	switch s {

@@ -18,9 +18,9 @@ func (l *UserList) FindUser(id int) (User, error) {
 }
 
 type UserListProxy struct {
-	SomeDatabase *UserList
-	StackCache *UserList
-	StackCapacity int
+	SomeDatabase           *UserList
+	StackCache             *UserList
+	StackCapacity          int
 	DidLastSearchUsedCache bool
 }
 

@@ -1,9 +1,6 @@
 package vehicle
 
 type Vehicle struct {
-	NumDoors int
+	NumDoors  int
 	NumWheels int
 }
-
-
-

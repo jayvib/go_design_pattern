@@ -10,7 +10,7 @@ func (a *Athlete) Train() {
 
 type CompositeSwimmerA struct {
 	MyAthlete Athlete
-	MySwim func()
+	MySwim    func()
 }
 
 func swim() {
@@ -18,6 +18,7 @@ func swim() {
 }
 
 type Animal struct{}
+
 func (Animal) Eat() {
 	fmt.Println("Eating")
 }
@@ -36,11 +37,13 @@ type Trainer interface {
 }
 
 type SwimmerImpl string
+
 func (s SwimmerImpl) Swim() {
 	fmt.Printf("%s is swimming\n", s)
 }
 
 type TrainerImpl string
+
 func (t TrainerImpl) Train() {
 	fmt.Printf("%s is training\n", t)
 }

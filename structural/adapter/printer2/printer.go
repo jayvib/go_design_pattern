@@ -8,7 +8,7 @@ type LegacyPrinter interface {
 }
 
 // MyLegacyPrinter implements LegacyPrinter and is a very productive printer.
-type MyLegacyPrinter struct {}
+type MyLegacyPrinter struct{}
 
 func (MyLegacyPrinter) Print(s string) string {
 	newMsg := fmt.Sprintf("Legacy Printer: %s\n", s)
@@ -23,13 +23,9 @@ type ModernPrinter interface {
 
 type PrinterAdapter struct {
 	OldPrinter LegacyPrinter
-	Msg string
+	Msg        string
 }
 
 func (p *PrinterAdapter) PrintStored() string {
 	return ""
 }
-
-
-
-

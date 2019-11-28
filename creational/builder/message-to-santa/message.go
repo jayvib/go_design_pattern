@@ -2,13 +2,13 @@ package message_to_santa
 
 // Message represents the item that will be constructed
 type Message struct {
-	Data []byte
+	Data   []byte
 	Format string
 }
 
 type message struct {
 	recipient string
-	text string
+	text      string
 }
 
 type BuilderMessage interface {
@@ -23,14 +23,8 @@ type BuilderDirector struct {
 	Msg        message
 }
 
-
-func (b *BuilderDirector) Build() (*Message, error){
+func (b *BuilderDirector) Build() (*Message, error) {
 	return b.BuilderMsg.SetRecipient(b.Msg.recipient).SetText(b.Msg.text).GetMessage()
 }
 
 // Define the Object Implementes the BuilderMessage
-
-
-
-
-

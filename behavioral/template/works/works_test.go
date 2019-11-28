@@ -1,9 +1,9 @@
 package works_test
 
 import (
-	"testing"
-	"github.com/go_design_pattern/behavioral/template/works"
+	"github.com/jayvib/go_design_pattern/behavioral/template/works"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestWork(t *testing.T) {

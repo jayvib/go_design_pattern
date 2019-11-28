@@ -28,12 +28,12 @@ type HistoricalData struct {
 }
 
 type Match struct {
-	Date         time.Time
-	VisitorID    uint64
-	LocalID      uint64
-	LocalScore   byte
-	VisitorScore byte
-	LocalShoots  uint16
+	Date          time.Time
+	VisitorID     uint64
+	LocalID       uint64
+	LocalScore    byte
+	VisitorScore  byte
+	LocalShoots   uint16
 	VisitorShoots uint16
 }
 
@@ -67,12 +67,12 @@ func getTeamFactory(teamID uint64) Team {
 	switch teamID {
 	case TEAM_A:
 		return Team{
-			ID: 1,
+			ID:   1,
 			Name: TEAM_A,
 		}
 	default:
 		return Team{
-			ID: 2,
+			ID:   2,
 			Name: TEAM_B,
 		}
 	}

@@ -1,9 +1,9 @@
 package db_store
 
 const (
-	FILE storage = 1
+	FILE  storage = 1
 	MYSQL storage = 2
-	MONGO  storage = 3
+	MONGO storage = 3
 )
 
 type storage int
@@ -29,6 +29,3 @@ func NewStore(s storage) (Store, error) {
 		return nil, nil
 	}
 }
-
-
-

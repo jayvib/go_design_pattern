@@ -18,7 +18,7 @@ func TestTextProcessing_ToLowerCase(t *testing.T) {
 
 func TestTextProcessing_TextReplace(t *testing.T) {
 	toReplace := &ToReplace{
-		charToReplace: "H",
+		charToReplace:     "H",
 		charToReplaceWith: "h",
 	}
 	toReplace.TransformNext("Hello")
@@ -30,7 +30,7 @@ func TestChainTextProcessing(t *testing.T) {
 		ToUpperCase{},
 		&ToReplace{
 			charToReplaceWith: "J",
-			charToReplace: "h",
+			charToReplace:     "h",
 		})
 
 	textProcessor.Transform("hEllO")

@@ -20,19 +20,19 @@ func (c *ChainWork) Work(name string) {
 	}
 }
 
-type LaundryWork struct {}
+type LaundryWork struct{}
 
 func (LaundryWork) Work(name string) {
 	fmt.Printf("%s is doing laundry\n", name)
 }
 
-type CookingWork struct {}
+type CookingWork struct{}
 
 func (CookingWork) Work(name string) {
 	fmt.Printf("%s is cooking a dishes\n", name)
 }
 
-type CodingWork struct {}
+type CodingWork struct{}
 
 func (CodingWork) Work(name string) {
 	fmt.Printf("%s is coding Go\n", name)

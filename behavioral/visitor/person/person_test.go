@@ -2,13 +2,13 @@ package person_test
 
 import (
 	"fmt"
-	"go_design_pattern/behavioral/visitor/person"
+	"github.com/jayvib/go_design_pattern/behavioral/visitor/person"
 	"testing"
 )
 
 type TestData struct {
 	visitable person.Visitable
-	expected string
+	expected  string
 }
 
 func TestPerson_Accept(t *testing.T) {
@@ -17,27 +17,27 @@ func TestPerson_Accept(t *testing.T) {
 
 	p1 := &person.Person{
 		Firstname: "Jayson",
-		Lastname: "Vibandor",
-		Age: 27,
-		Gender: "Male",
+		Lastname:  "Vibandor",
+		Age:       27,
+		Gender:    "Male",
 	}
 	tdata1 := TestData{
 		visitable: p1,
-		expected: fmt.Sprintf(pfmt, p1.Firstname + " " + p1.Lastname, p1.Gender, p1.Age),
+		expected:  fmt.Sprintf(pfmt, p1.Firstname+" "+p1.Lastname, p1.Gender, p1.Age),
 	}
 
 	visitables = append(visitables, tdata1)
 
 	p2 := &person.Person{
 		Firstname: "Althea",
-		Lastname: "Bongalon",
-		Age: 25,
-		Gender: "Female",
+		Lastname:  "Bongalon",
+		Age:       25,
+		Gender:    "Female",
 	}
 
 	tdata2 := TestData{
 		visitable: p2,
-		expected: fmt.Sprintf(pfmt, p2.Firstname + " " + p2.Lastname, p2.Gender, p2.Age),
+		expected:  fmt.Sprintf(pfmt, p2.Firstname+" "+p2.Lastname, p2.Gender, p2.Age),
 	}
 
 	visitables = append(visitables, tdata2)

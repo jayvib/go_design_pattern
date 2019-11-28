@@ -3,12 +3,12 @@ package log
 import "io"
 
 type MessageA struct {
-	Msg string
+	Msg    string
 	Output io.Writer
 }
 
 type MessageB struct {
-	Msg string
+	Msg    string
 	Output io.Writer
 }
 
@@ -21,6 +21,4 @@ type Visitable interface {
 	Accept(Visitor)
 }
 
-type MessageVisitor struct {}
-
-
+type MessageVisitor struct{}

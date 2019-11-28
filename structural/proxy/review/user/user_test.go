@@ -11,13 +11,13 @@ func TestUserListProxy(t *testing.T) {
 	rand.Seed(2342342)
 
 	for i := 0; i < 100000; i++ {
-		someDatabase = append(someDatabase, User{ ID: rand.Intn(31)})
+		someDatabase = append(someDatabase, User{ID: rand.Intn(31)})
 	}
 
 	proxy := UserListProxy{
-		SomeDatabase: &someDatabase,
+		SomeDatabase:  &someDatabase,
 		StackCapacity: 2,
-		StackCache: new(UserList),
+		StackCache:    new(UserList),
 	}
 
 	knownIDs := [3]int{
@@ -26,7 +26,7 @@ func TestUserListProxy(t *testing.T) {
 		someDatabase[5].ID,
 	}
 
-	t.Run("FindUser - Empty cache", func(t *testing.T){
+	t.Run("FindUser - Empty cache", func(t *testing.T) {
 		user, err := proxy.FindUser(knownIDs[0])
 		if err != nil {
 			t.Fatal(err)
@@ -45,7 +45,7 @@ func TestUserListProxy(t *testing.T) {
 		}
 	})
 
-	t.Run("FindUser - One user, ask for the same user", func(t *testing.T){
+	t.Run("FindUser - One user, ask for the same user", func(t *testing.T) {
 		user, err := proxy.FindUser(knownIDs[0])
 		if err != nil {
 			t.Fatal(err)

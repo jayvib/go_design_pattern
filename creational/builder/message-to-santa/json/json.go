@@ -2,12 +2,12 @@ package json
 
 import (
 	"encoding/json"
-	"go_design_pattern/creational/builder/message-to-santa"
+	"github.com/jayvib/go_design_pattern/creational/builder/message-to-santa"
 )
 
 type JSONMessageBuilder struct {
 	Recipient string
-	Msg string
+	Msg       string
 }
 
 func (j *JSONMessageBuilder) SetRecipient(recipient string) message_to_santa.BuilderDirector {
@@ -26,7 +26,7 @@ func (j *JSONMessageBuilder) GetMessage() (*message_to_santa.Message, error) {
 		return nil, err
 	}
 	m := &message_to_santa.Message{
-		Data: b,
+		Data:   b,
 		Format: "JSON",
 	}
 	return m, nil

@@ -2,8 +2,7 @@ package payment_test
 
 import (
 	"fmt"
-	p "github.com/go_design_pattern/behavioral/strategy/payment"
-	"github.com/go_design_pattern/creational/factory/payment"
+	"github.com/jayvib/go_design_pattern/creational/factory/payment"
 	"testing"
 )
 

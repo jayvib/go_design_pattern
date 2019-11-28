@@ -1,14 +1,14 @@
 package serialize
 
 import (
+	"encoding/json"
 	"encoding/xml"
-	"github.com/kubernetes/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/json"
 	"testing"
 )
 
 type Person struct {
 	FirstName string
-	LastName string
+	LastName  string
 }
 
 func TestNewSerializer(t *testing.T) {
@@ -18,7 +18,7 @@ func TestNewSerializer(t *testing.T) {
 		{"Jumily", "Vibandor"},
 	}
 
-	t.Run("JSONSerializer", func(t *testing.T){
+	t.Run("JSONSerializer", func(t *testing.T) {
 		jsonSerializer, err := NewSerializer(JSON)
 		if err != nil {
 			t.Fatal(err)
@@ -33,9 +33,9 @@ func TestNewSerializer(t *testing.T) {
 				t.Error("Expecting the marshal bytes not empty")
 			}
 
-			out := struct{
+			out := struct {
 				FirstName string
-				LastName string
+				LastName  string
 			}{}
 
 			err = json.Unmarshal(b, &out)
@@ -53,7 +53,7 @@ func TestNewSerializer(t *testing.T) {
 		}
 	})
 
-	t.Run("XMLSerializer", func(t *testing.T){
+	t.Run("XMLSerializer", func(t *testing.T) {
 		xmlSerializer, err := NewSerializer(XML)
 		if err != nil {
 			t.Fatal(err)

@@ -2,7 +2,7 @@ package number_guess
 
 import (
 	"fmt"
-	"github.com/kubernetes/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/rand"
+	"math/rand"
 	"os"
 	"time"
 )
@@ -12,13 +12,13 @@ type GameState interface {
 }
 
 type GameContext struct {
-	retries int
+	retries      int
 	secretNumber int
-	won bool
-	next GameState
+	won          bool
+	next         GameState
 }
 
-type StartState struct {}
+type StartState struct{}
 
 func (s *StartState) ExecuteState(c *GameContext) bool {
 	rand.Seed(time.Now().UnixNano())
@@ -31,7 +31,7 @@ func (s *StartState) ExecuteState(c *GameContext) bool {
 	return true
 }
 
-type AskState struct {}
+type AskState struct{}
 
 func (a *AskState) ExecuteState(c *GameContext) bool {
 	// ask for a number
@@ -53,7 +53,7 @@ func (a *AskState) ExecuteState(c *GameContext) bool {
 	return true
 }
 
-type FinishState struct {}
+type FinishState struct{}
 
 func (a *FinishState) ExecuteState(c *GameContext) bool {
 	if c.won {

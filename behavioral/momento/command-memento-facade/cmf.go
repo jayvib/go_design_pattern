@@ -6,7 +6,7 @@ type Command interface {
 
 type Volume byte
 
-func( v Volume) GetValue() interface{} {
+func (v Volume) GetValue() interface{} {
 	return v
 }
 
@@ -51,7 +51,7 @@ func (c *careTaker) Pop() Memento {
 
 type MementoFacade struct {
 	originator originator
-	careTaker careTaker
+	careTaker  careTaker
 }
 
 func (m *MementoFacade) SaveSetting(c Command) {

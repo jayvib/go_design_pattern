@@ -10,7 +10,7 @@ func NewVintageSonger() VintageSonger {
 	return vintageSongerImpl{}
 }
 
-type vintageSongerImpl struct {}
+type vintageSongerImpl struct{}
 
 func (vintageSongerImpl) Sing(title string) string {
 	return fmt.Sprintf("Singing %s", title)
@@ -40,4 +40,3 @@ func (m *modernSongerImpl) SingingStoredSong() string {
 func (m *modernSongerImpl) PrepareNewSong(song string) {
 	m.song = song
 }
-

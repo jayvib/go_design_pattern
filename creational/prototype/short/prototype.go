@@ -13,7 +13,7 @@ const (
 
 type Short struct {
 	Price float64
-	SKU string
+	SKU   string
 	Color string
 }
 
@@ -23,19 +23,19 @@ func (s *Short) Info() string {
 
 var BlackShortPrototype = &Short{
 	Price: 10,
-	SKU: "empty",
+	SKU:   "empty",
 	Color: "Black",
 }
 
 var BlueShortPrototype = &Short{
 	Price: 20,
-	SKU: "empty",
+	SKU:   "empty",
 	Color: "Blue",
 }
 
 var RedShortPrototype = &Short{
 	Price: 30,
-	SKU: "empty",
+	SKU:   "empty",
 	Color: "Red",
 }
 

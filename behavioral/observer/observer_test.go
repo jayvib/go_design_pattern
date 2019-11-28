@@ -6,7 +6,7 @@ import (
 )
 
 type TestObserver struct {
-	ID int
+	ID      int
 	Message string
 }
 
@@ -31,7 +31,7 @@ func TestSubject(t *testing.T) {
 		}
 	})
 
-	t.Run("RemoveObserver", func(t *testing.T){
+	t.Run("RemoveObserver", func(t *testing.T) {
 		publisher.RemoveObserver(testObserver2)
 
 		if len(publisher.ObserversList) != 2 {
@@ -63,6 +63,5 @@ func TestSubject(t *testing.T) {
 			}
 		}
 	})
-
 
 }

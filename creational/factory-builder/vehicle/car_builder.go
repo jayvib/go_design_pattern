@@ -9,7 +9,7 @@ func (c *SportsCar) SetDoors() VehicleBuildProcess {
 	return c
 }
 
-func (c *SportsCar) SetWheels()  VehicleBuildProcess{
+func (c *SportsCar) SetWheels() VehicleBuildProcess {
 	c.vehicle.NumWheels = 2
 	return c
 }
@@ -22,12 +22,12 @@ type FamilyCar struct {
 	vehicle Vehicle
 }
 
-func (f *FamilyCar) SetDoors()  VehicleBuildProcess{
+func (f *FamilyCar) SetDoors() VehicleBuildProcess {
 	f.vehicle.NumDoors = 4
 	return f
 }
 
-func (f *FamilyCar) SetWheels()  VehicleBuildProcess{
+func (f *FamilyCar) SetWheels() VehicleBuildProcess {
 	f.vehicle.NumWheels = 4
 	return f
 }

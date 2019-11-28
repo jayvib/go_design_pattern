@@ -1,9 +1,9 @@
 package database
 
 import (
-	"io"
-	"fmt"
 	"errors"
+	"fmt"
+	"io"
 )
 
 type fileStorage struct {
@@ -11,7 +11,7 @@ type fileStorage struct {
 }
 
 func (f *fileStorage) Put(key, value string) error {
-	_, err :=  f.file.Write([]byte(fmt.Sprintf("%s|%s\n", key, value)))
+	_, err := f.file.Write([]byte(fmt.Sprintf("%s|%s\n", key, value)))
 	return err
 }
 

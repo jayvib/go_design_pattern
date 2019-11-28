@@ -23,11 +23,11 @@ type Visitor interface {
 	Visit(*Person)
 }
 
-type visitor struct {}
+type visitor struct{}
 
 func (visitor) Visit(p *Person) {
 	profileFmt := fmt.Sprintf("My name is %s, %s and %d years old.",
-		p.Firstname+ " " + p.Lastname, p.Gender, p.Age,
+		p.Firstname+" "+p.Lastname, p.Gender, p.Age,
 	)
 
 	p.Profile = profileFmt

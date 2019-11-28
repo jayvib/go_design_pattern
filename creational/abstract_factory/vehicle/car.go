@@ -4,9 +4,9 @@ type Car interface {
 	NumDoors() int
 }
 
-type LuxuryCar struct {}
+type LuxuryCar struct{}
 
-func(l *LuxuryCar) NumSeats() int {
+func (l *LuxuryCar) NumSeats() int {
 	return 0
 }
 
@@ -18,7 +18,7 @@ func (l *LuxuryCar) NumDoors() int {
 	return 0
 }
 
-type FamilyCar struct {}
+type FamilyCar struct{}
 
 func (f *FamilyCar) NumSeats() int {
 	return 0
