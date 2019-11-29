@@ -26,5 +26,8 @@ func SetLogger(l Logger) {
 }
 
 func Println(args ...interface{}) {
-	logger.Println(args)
+	if logger == nil {
+		logger = Std
+	}
+	logger.Println(args...)
 }
