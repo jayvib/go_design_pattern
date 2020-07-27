@@ -10,7 +10,7 @@ type Computer interface {
 }
 
 type ComputerFactory interface {
-	NewComputer(c computer) Computer
+	CreateComputer(c computer) Computer
 }
 
 type computer int
@@ -25,7 +25,7 @@ const (
 
 type laptopFactory struct{}
 
-func (l laptopFactory) NewComputer(c computer) Computer {
+func (l laptopFactory) CreateComputer(c computer) Computer {
 	switch c {
 	case HPLaptop:
 		return hpLaptop{}
@@ -38,7 +38,7 @@ func (l laptopFactory) NewComputer(c computer) Computer {
 
 type desktopFactory struct{}
 
-func (d desktopFactory) NewComputer(c computer) Computer {
+func (d desktopFactory) CreateComputer(c computer) Computer {
 	switch c {
 	case HPDesktop:
 		return hpDesktop{}
@@ -66,3 +66,4 @@ func NewComputerFactory(f factory) (ComputerFactory, error) {
 	}
 	return nil, errors.New("not implemented yet")
 }
+

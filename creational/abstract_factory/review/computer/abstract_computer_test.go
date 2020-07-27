@@ -15,7 +15,7 @@ func TestNewComputerFactory(t *testing.T) {
 
 		// Test for HP Desktop
 		t.Run("HP Desktop Computer", func(t *testing.T) {
-			comp := f.NewComputer(HPDesktop)
+			comp := f.CreateComputer(HPDesktop)
 
 			// check its method return
 			assert.Equal(t, "hp desktop display", comp.Display())
@@ -25,7 +25,7 @@ func TestNewComputerFactory(t *testing.T) {
 		})
 
 		t.Run("Dell Desktop Computer", func(t *testing.T) {
-			comp := f.NewComputer(DellDesktop)
+			comp := f.CreateComputer(DellDesktop)
 			// check its method return
 			assert.Equal(t, "dell desktop display", comp.Display())
 			assert.Equal(t, "dell desktop mouse", comp.Mouse())
@@ -43,7 +43,7 @@ func TestNewComputerFactory(t *testing.T) {
 
 		// Test for HP Laptop
 		t.Run("HP Laptop Computer", func(t *testing.T) {
-			comp := f.NewComputer(HPLaptop)
+			comp := f.CreateComputer(HPLaptop)
 			// check its method return
 			assert.Equal(t, "hp laptop display", comp.Display())
 			assert.Equal(t, "hp laptop mouse", comp.Mouse())
@@ -52,7 +52,7 @@ func TestNewComputerFactory(t *testing.T) {
 		})
 
 		t.Run("Dell Laptop Computer", func(t *testing.T) {
-			comp := f.NewComputer(DellLaptop)
+			comp := f.CreateComputer(DellLaptop)
 			// check its method return
 			assert.Equal(t, "dell laptop display", comp.Display())
 			assert.Equal(t, "dell laptop mouse", comp.Mouse())
